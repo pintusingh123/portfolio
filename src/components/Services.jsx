@@ -14,10 +14,7 @@ const services = [
     title: "UI/UX Design",
     desc: "Crafting intuitive and engaging user experiences with modern design tools.",
   },
-  {
-    title: "DevOps & Deployment",
-    desc: "Automating deployment pipelines and managing cloud infrastructure.",
-  },
+ 
   {
     title: "API Integration",
     desc: "Connecting third-party services and building scalable integrations.",
