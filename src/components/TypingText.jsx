@@ -129,7 +129,8 @@ function TypingText({
   }, []);
 
   return (
-    <div className="flex   flex-col items-center justify-center min-h-[70vh]  md:min-h-[90vh]  text-white px-4">
+    <div className="flex   flex-col items-center justify-center min-h-[70vh]  md:min-h-[80vh]
+    lg:min-h-[90vh]  text-white pt-10 lg:pt-10 sm:pt-20  px-3">
       <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
         Hey..I'Am Pintu Singh
       </h1>
