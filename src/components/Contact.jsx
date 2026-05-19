@@ -1,19 +1,5 @@
- import React, { useState } from "react";
+import React from "react";
 import Button from "./buttons/Button";
-
-const InputField = ({ label, placeholder, width, onChange }) => {
-  return (
-    <div className={`flex flex-col ${width || "w-[50%]"} p-4`}>
-      <label className="font-bold text-white">{label}</label>
-      <input
-        type="text"
-        placeholder={placeholder}
-        className="bg-gray-900 text-white border border-gray-600 rounded-md px-3 py-2 mt-1 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400 placeholder-gray-400"
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </div>
-  );
-};
 
 const ContactItem = ({ icon, title, content }) => (
   <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
@@ -30,25 +16,7 @@ const ContactItem = ({ icon, title, content }) => (
 );
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (name, value) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async () => {
-    alert("Form Submitted! 🚀");
-  };
+  // Contact form removed per user request; only contact info is shown.
 
   const contactData = [
     {
@@ -56,9 +24,9 @@ const Contact = () => {
       title: "Call us",
       content: (
         <>
-          +1-940-394-2948
+          +91-800-364-2596
           <br />
-          +1-389-385-3807
+          +91-844-199-2003
         </>
       ),
     },
@@ -67,9 +35,9 @@ const Contact = () => {
       title: "Email us",
       content: (
         <>
-          support@brainwave.io
+          pintujhala4@gmail.com
           <br />
-          contact@brainwave.io
+          pintugit982@gmail.com
         </>
       ),
     },
@@ -78,88 +46,53 @@ const Contact = () => {
       title: "Visit us",
       content: (
         <>
-          34 Madison Street,
-          <br />
-          NY, USA 10005
+          jhalawar city rajasthan,
+          <br />, IND
         </>
       ),
     },
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen flex justify-center items-start pt-20 px-6">
-      <div className="px-10 py-10 max-w-[1250px] w-full rounded-2xl">
+    <div className="bg-black text-white min-h-screen px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1100px] rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/30 backdrop-blur-xl">
         {/* Heading */}
-        <section className="flex flex-col text-center max-w-[1266px] w-full items-center">
-           <Button title="Contact-US" />
-          <p className="mt-8 w-full text-lg max-w-[650px] text-gray-300">
+        <section className="flex flex-col items-center text-center gap-6 px-4 py-6">
+          <Button title="Contact-US" />
+          <p className="mx-auto max-w-[720px] text-base leading-7 text-gray-300 sm:text-lg">
             With lots of unique blocks, you can easily build a page without
             coding. Build your next consultancy website within few minutes.
           </p>
         </section>
 
-         {/* Contact Info */}
-<section className="py-16 mx-auto">
-  <div className="flex flex-row gap-12 items-center justify-center max-md:gap-10">
-    {contactData.map((item, index) => (
-      <div key={index} className="flex flex-col items-center text-center max-w-[400px]">
-        <img src={item.icon} alt="" className="w-[60px] h-[60px] mb-4" />
-        <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-        <p className="text-lg text-gray-300">{item.content}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-        {/* Form */}
-        <section className="flex  border flex-col px-8 py-12   rounded-xl shadow-lg">
-          <div className="flex flex-wrap justify-center items-center">
-            <div className="flex w-full max-w-[1000px] justify-between">
-              <InputField
-                label="First Name & Last Name"
-                placeholder="i.e. John Smith"
-                width="w-[48%]"
-                onChange={(value) => handleChange("firstName", value)}
+        {/* Contact Info */}
+        <section className="grid gap-6 px-4 py-6 sm:grid-cols-3">
+          {contactData.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-center"
+            >
+              <img
+                src={item.icon}
+                alt={item.title}
+                className="mb-4 h-16 w-16 rounded-full bg-white/5 p-3"
               />
-              <InputField
-                label="Email"
-                placeholder="i.e. john@mail.com"
-                width="w-[48%]"
-                onChange={(value) => handleChange("email", value)}
-              />
+              <h3 className="text-xl font-bold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-gray-300">
+                {item.content}
+              </p>
             </div>
-            <div className="flex w-full max-w-[1000px] justify-between">
-              <InputField
-                label="Phone Number"
-                placeholder="i.e. +1-234-567-7890"
-                width="w-[48%]"
-                onChange={(value) => handleChange("phoneNumber", value)}
-              />
-              <InputField
-                label="Subject"
-                placeholder="i.e. I need help"
-                width="w-[48%]"
-                onChange={(value) => handleChange("subject", value)}
-              />
-            </div>
-          </div>
+          ))}
+        </section>
 
-          <div className="flex flex-wrap justify-center items-center w-[100%]">
-            <InputField
-              label="Message"
-              placeholder="i.e. Type your message here."
-              width="w-[93%]"
-              onChange={(value) => handleChange("message", value)}
-            />
-            <div className="flex justify-start w-[90%] pt-6">
-              <button
-                className="text-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-12 py-3 transition"
-                onClick={handleSubmit}
-              >
-                Send
-              </button>
-            </div>
+        {/* Contact form removed by request. Keep contact info and CTA. */}
+        <section className="px-4 pb-8">
+          <div className="rounded-3xl bg-slate-950/80 p-6 shadow-xl shadow-black/20 text-center">
+            <p className="text-gray-300">
+              The contact form has been disabled. You can reach me directly via email or phone using the contact information above. Looking forward to connecting with you! and whatsapp me on +91-800-364-2596
+            </p>
+            
+             
           </div>
         </section>
       </div>

@@ -7,9 +7,11 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Contact from "./Contact";
 import Skil from "./Skil";
-import ProjectsSection from "./ProjectsSection";
+// import ProjectsSection from "./ProjectsSection";
+import ProjectShowcase from "./ProjectShowcase";
+// Footer is rendered once in App.jsx; avoid rendering it here.
 
-// import ScrollStack from "./ScrollStack"; 
+// import ScrollStack from "./ScrollStack";
 
 function Home() {
   const velocity = 100;
@@ -20,7 +22,8 @@ function Home() {
 
       {/* ✅ Updated CardList renders multiple cards dynamically */}
       {/* <ScrollStack /> */}
-      <ProjectsSection/>
+      {/* <ProjectsSection /> */}
+      <ProjectShowcase />
 
       <Skil
         texts={["React Bits", "Scroll Down"]}

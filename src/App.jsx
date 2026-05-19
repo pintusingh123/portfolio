@@ -6,11 +6,11 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/NotFound";
 import Blog from "./components/Blog";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
-  
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,6 +19,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
