@@ -3,12 +3,23 @@ import { motion } from "framer-motion";
 import {
   FaLaptopCode,
   FaCrop,
+  FaTasks ,
   FaClipboardList,
   FaCheckCircle,
 } from "react-icons/fa";
 import Button from "./buttons/Button";
 
 const projects = [
+  {
+    title: "TaskFlow App",
+    icon: FaTasks,
+    description:
+      "Developed a Django-based task management system with authentication, task tracking, analytics dashboard, search, filtering, CRUD operations, and PostgreSQL integration.",
+    live: "https://task-manager-sec5.onrender.com/signup",
+    github: "https://github.com/pintusingh123/Todo_django",
+    tags: ["Django","Django ORM", "Authentication", "TailwindCSS", "Responsive UI"],
+    featured: true,
+  },
   {
     title: "Portfolio Website",
     icon: FaLaptopCode,
