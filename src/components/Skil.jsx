@@ -10,36 +10,32 @@ export default function Skill() {
     "React",
     "Next.js",
     "Tailwind CSS",
-    "Framer Motion",
     "DOM",
-    "Unit Test",
-    
   ];
 
   const backendSkills = [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "mongoose",
+    "Django",
+    "Flask",
+    "fireBase",
+    "Django-ORM",
     "Postman",
     "REST API",
     "Zod Validation",
-    "JWT/Auth",
+    "PostgreSQL",
     "MySQL",
     "Zerodha Payments",
   ];
 
   const otherSkills = [
-    "DSA",
-    "JAVA",
+    "DSA Python",
+    "Python",
+    "OOPS",
     "Git",
     "GitHub",
     "Linux",
     "Vercel",
-    "UX/UI Design",
-    "Figma",
-    "Docker",
-    "AWS",
+    "Render deployment",
+    "AWS basics",
   ];
 
   return (
