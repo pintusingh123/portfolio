@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
+  FaTasks,
   FaLaptopCode,
   FaCrop,
-  FaTasks ,
   FaClipboardList,
   FaCheckCircle,
+  FaExternalLinkAlt,
+  FaGithub,
 } from "react-icons/fa";
 import Button from "./buttons/Button";
 
@@ -14,157 +16,158 @@ const projects = [
     title: "TaskFlow App",
     icon: FaTasks,
     description:
-      "Developed a Django-based task management system with authentication, task tracking, analytics dashboard, search, filtering, CRUD operations, and PostgreSQL integration.",
+      "Full-stack Django task management system featuring user authentication, PostgreSQL database, analytics dashboard, search filtering, and robust CRUD operations.",
     live: "https://task-manager-sec5.onrender.com/signup",
     github: "https://github.com/pintusingh123/Todo_django",
-    tags: ["Django","Django ORM", "Authentication", "TailwindCSS", "Responsive UI"],
+    tags: ["Django", "Python", "Authentication", "PostgreSQL", "TailwindCSS"],
     featured: true,
   },
   {
     title: "Portfolio Website",
     icon: FaLaptopCode,
     description:
-      "A polished portfolio experience built with React, Vite and TailwindCSS. Highlights career wins, project outcomes, and the technical decisions that make the UI feel fast and professional.",
+      "A high-performance modern developer portfolio crafted with React, Vite, and Tailwind CSS. Showcases production projects, skills, and interactive UI design.",
     live: "https://portfolio-app-delta-one.vercel.app/",
     github: "https://github.com/pintusingh123/portfolio",
-    tags: ["React", "Vite", "TailwindCSS", "Responsive UI"],
+    tags: ["React", "Vite", "TailwindCSS", "Framer Motion", "Responsive UI"],
     featured: true,
   },
   {
-    title: "Cropify App",
+    title: "Cropify Image Editor",
     icon: FaCrop,
     description:
-      "A user-first image editor with account management, local-cache authentication, and premium Stripe payment flow. Built to demonstrate full-stack ownership and polished interaction design.",
+      "Feature-rich web image cropper and editor with account management, client authentication caching, and seamless Stripe payment integration.",
     live: "https://cropify-app.vercel.app/",
     github: "https://github.com/pintusingh123/image-crop-with-user-auth",
-    tags: ["JavaScript", "TailwindCSS", "LocalStorage Auth", "Stripe"],
+    tags: ["JavaScript", "TailwindCSS", "LocalStorage Auth", "Stripe API"],
+    featured: false,
   },
   {
     title: "Daily Tasker App",
     icon: FaClipboardList,
     description:
-      "A task planner that keeps users organized with search, filters, and a mobile-friendly UI. Designed for productivity and fast habit-building during everyday workflows.",
+      "Productivity task planner offering real-time search, category filters, and a mobile-optimized UI tailored for daily habit management.",
     live: "https://dailytasker01.netlify.app/",
     github: "https://github.com/pintusingh123/todoList_with_js",
-    tags: ["JavaScript", "CSS", "TailwindCSS", "Search"],
+    tags: ["JavaScript", "CSS3", "TailwindCSS", "DOM API"],
+    featured: false,
   },
   {
     title: "CRUD Dashboard",
     icon: FaCheckCircle,
     description:
-      "A clean CRUD dashboard built in React with reusable components and smooth interactions. Demonstrates data management, edit flows, and strong attention to interface detail.",
+      "Modern React CRUD application with modular components, smooth modal interactions, state management, and real-time list manipulation.",
     live: "https://crud-app-eight-phi.vercel.app/",
     github: "https://github.com/pintusingh123/crud-app",
-    tags: ["React", "CRUD", "TailwindCSS", "Component Reuse"],
+    tags: ["React", "State Management", "TailwindCSS", "Reusable Components"],
+    featured: false,
   },
 ];
 
-const container = {
-  hidden: {},
+const containerVariants = {
+  hidden: { opacity: 0 },
   show: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.1,
     },
   },
 };
 
-const card = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+const itemVariants = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 export default function ProjectShowcase() {
   return (
-    <section className="w-full max-w-[1200px] mx-auto px-4 py-12">
-      <div className="text-center mb-8">
-        <Button title="Selected Projects" />
-        <p className="mt-3 text-slate-300 max-w-2xl mx-auto">
-          Curated projects that highlight practical skills, production-readiness
-          and results — useful to reference in interviews and on your resume.
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Section Header */}
+      <div className="text-center mb-12 flex flex-col items-center">
+        <Button title="Featured Work" />
+        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Projects I've Built
+        </h2>
+        <p className="mt-3 text-slate-400 max-w-2xl text-sm sm:text-base">
+          Production-ready applications demonstrating full-stack problem solving, clean code architecture, and high UI standard.
         </p>
       </div>
 
+      {/* Projects Grid */}
       <motion.div
-        className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        variants={container}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        variants={containerVariants}
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
       >
-        {projects.map((p, i) => {
-          const Icon = p.icon;
+        {projects.map((project) => {
+          const Icon = project.icon;
           return (
             <motion.article
-              key={p.title}
-              variants={card}
-              whileHover={{ scale: 1.03 }}
-              className="relative overflow-hidden rounded-3xl bg-slate-950/90 border border-white/10 p-6 shadow-2xl shadow-black/20"
+              key={project.title}
+              variants={itemVariants}
+              className="group relative glass-card rounded-2xl p-6 flex flex-col justify-between border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl hover:-translate-y-1"
             >
-              {p.featured && (
-                <div className="absolute right-4 top-4 rounded-full bg-yellow-400 px-3 py-1 text-xs font-semibold uppercase text-slate-950 tracking-[0.22em]">
-                  Featured
+              {/* Featured Ribbon */}
+              {project.featured && (
+                <div className="absolute right-4 top-4 rounded-full bg-amber-400/10 border border-amber-400/40 px-3 py-1 text-[10px] font-bold uppercase text-amber-300 tracking-wider">
+                  ★ Featured
                 </div>
               )}
 
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow-400 text-slate-950 shadow-lg shadow-yellow-500/20">
-                  <Icon className="h-7 w-7" />
+              <div>
+                {/* Header Icon + Title */}
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 font-mono">
+                      {project.tags.slice(0, 2).join(" • ")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white">
-                    {p.title}
-                  </h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">
-                    {p.tags.slice(0, 2).join(" • ")}
-                  </p>
-                </div>
-              </div>
 
-              <p className="mt-5 text-sm leading-7 text-slate-300">
-                {p.description}
-              </p>
+                {/* Description */}
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
 
-              <div className="mt-5 rounded-3xl border border-white/10 bg-white/5 p-4">
-                <h4 className="text-sm font-semibold text-white">
-                  Technologies used
-                </h4>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
+                {/* Tech Badges */}
+                <div className="mb-6 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
                     <span
-                      key={t}
-                      className="inline-flex rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200"
+                      key={tag}
+                      className="rounded-md bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-slate-300 font-medium"
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-yellow-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-yellow-300"
-                  >
-                    Live Site
-                  </a>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
-                  >
-                    GitHub
-                  </a>
-                </div>
+              {/* Card Footer CTAs */}
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
                 <a
-                  href={p.github}
+                  href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-slate-500"
+                  className="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-4 py-2 text-xs font-bold text-slate-950 hover:bg-amber-300 shadow-md transition"
                 >
-                  View source
+                  Live Demo <FaExternalLinkAlt className="w-3 h-3" />
+                </a>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg glass-card px-3.5 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:border-amber-400/30 transition"
+                >
+                  <FaGithub size={14} /> Code
                 </a>
               </div>
             </motion.article>

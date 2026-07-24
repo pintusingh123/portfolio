@@ -1,17 +1,31 @@
- import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
+import { FaArrowRight, FaFileDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 
 function TypingText({
-  words = ["DevOps", "Full Stack Web Dev", "Back End Dev", "Front End Dev"],
-  typingSpeed = 100,
-  deleteSpeed = 100,
-  delayBetweenWords = 1000,
+  words = [
+    "Full Stack Web Developer",
+    "Django & Python Specialist",
+    "React & Modern UI Developer",
+    "Backend & REST API Architect",
+  ],
+  typingSpeed = 90,
+  deleteSpeed = 60,
+  delayBetweenWords = 1500,
 }) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   useEffect(() => {
     const currentWord = words[currentWordIndex];
@@ -48,127 +62,138 @@ function TypingText({
     delayBetweenWords,
   ]);
 
-  // ✅ GSAP Cursor + Magnifier Effect
-  useEffect(() => {
-    const trailContainer = document.createElement("div");
-    const lens = document.createElement("div");
-
-    // Lens styles
-    lens.style.position = "fixed";
-    lens.style.width = "50px";
-    lens.style.height = "50px";
-    lens.style.borderRadius = "50%";
-    lens.style.border = "2px solid rgba(255,255,255,0.2)";
-    lens.style.boxShadow = "0 0 10px rgba(255,255,255,0.3)";
-    lens.style.pointerEvents = "none";
-    lens.style.zIndex = 9999;
-    lens.style.backdropFilter = "blur(1px)";
-    lens.style.transform = "translate(-50%, -50%) scale(1.3)";
-    lens.style.transition = "opacity 0.2s ease";
-    lens.style.opacity = "0";
-    lens.style.background =
-      "radial-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0))";
-    document.body.appendChild(lens);
-
-    trailContainer.style.position = "fixed";
-    trailContainer.style.top = 0;
-    trailContainer.style.left = 0;
-    trailContainer.style.pointerEvents = "none";
-    trailContainer.style.zIndex = 9998;
-    document.body.appendChild(trailContainer);
-
-    const createTrail = (x, y) => {
-      const circle = document.createElement("div");
-      circle.style.position = "fixed";
-      circle.style.left = `${x}px`;
-      circle.style.top = `${y}px`;
-      circle.style.width = "30px";
-      circle.style.height = "30px";
-      circle.style.borderRadius = "50%";
-      circle.style.border = "1px solid rgba(255,255,255,0.3)";
-      circle.style.backgroundColor = "rgba(25,0,255,0.05)";
-      circle.style.pointerEvents = "none";
-      circle.style.zIndex = 9997;
-      circle.style.transform = "translate(-50%, -50%) scale(2)";
-      circle.style.backdropFilter = "blur(3px)";
-      trailContainer.appendChild(circle);
-
-      gsap.to(circle, {
-        scale: 0,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        onComplete: () => circle.remove(),
-      });
-    };
-
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-
-      lens.style.left = `${clientX}px`;
-      lens.style.top = `${clientY}px`;
-
-      // Detect if cursor is over text element
-      const el = document.elementFromPoint(clientX, clientY);
-      const isTextTag =
-        el &&
-        ["P", "H1", "H2", "SPAN", "A"].includes(el.tagName.toUpperCase());
-
-      lens.style.opacity = isTextTag ? "1" : "0";
-
-      createTrail(clientX, clientY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      lens.remove();
-      trailContainer.remove();
-    };
-  }, []);
-
   return (
-    <div className="flex   flex-col items-center justify-center min-h-[70vh]  md:min-h-[80vh]
-    lg:min-h-[90vh]  text-white pt-10 lg:pt-10 sm:pt-20  px-3">
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4">
-        Hey..I'Am Pintu Singh
-      </h1>
-      <h2 className="text-xl sm:text-2xl md:text-3xl text-yellow-400 font-semibold mb-4">
-        A'Passionate
-      </h2>
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-28 pb-16 px-4 text-center overflow-hidden">
+      {/* Subtle Ambient Background Spotlight */}
+      <div
+        className="pointer-events-none fixed -z-10 w-[500px] h-[500px] rounded-full opacity-15 bg-gradient-to-tr from-amber-400 via-yellow-500 to-blue-600 blur-3xl transition-transform duration-700 ease-out transform -translate-x-1/2 -translate-y-1/2"
+        style={{
+          left: `${mousePos.x}px`,
+          top: `${mousePos.y}px`,
+        }}
+      />
 
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-mono mb-6 flex items-center">
-        {currentText}
-        <motion.span
-          className="ml-1 text-yellow-400"
-          animate={{ opacity: [0.2, 1] }}
-          transition={{
-            duration: 0.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        >
-          |
-        </motion.span>
-      </h1>
+      {/* Grid Pattern Backdrop */}
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
-      <p className="text-center text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl">
-        Full Stack Developer with expertise in Frontend technologies and Backend
-        frameworks, adept at developing end-to-end solutions that optimize user
-        experience and system performance.
-      </p>
-
-      <Link
-        to="/blog"
-        className="mt-6 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-lg hover:bg-yellow-400 transition"
+      {/* Availability Badge */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-medium mb-6 backdrop-blur-md"
       >
-        Go to Blog
-      </Link>
-    </div>
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        Available for Full-time Roles & Projects
+      </motion.div>
+
+      {/* Main Headline */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="max-w-4xl"
+      >
+        <p className="text-amber-400 font-semibold tracking-widest text-sm uppercase mb-2">
+          Hi, I am Pintu Singh
+        </p>
+
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          Crafting High-Performance <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
+            Web Applications
+          </span>
+        </h1>
+
+        {/* Dynamic Typing Subtitle */}
+        <div className="h-12 flex items-center justify-center mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-mono text-slate-300 font-semibold">
+            I am a{" "}
+            <span className="text-amber-400 border-b-2 border-amber-400/50 pb-0.5">
+              {currentText}
+            </span>
+            <motion.span
+              animate={{ opacity: [0, 1] }}
+              transition={{
+                duration: 0.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="ml-1 text-amber-400"
+            >
+              |
+            </motion.span>
+          </h2>
+        </div>
+
+        {/* Brief Intro Paragraph */}
+        <p className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+          Dedicated Software Engineer specializing in modern frontend architectures with <strong className="text-slate-200 font-medium">React</strong> and scalable backend systems powered by <strong className="text-slate-200 font-medium">Django & Python</strong>.
+        </p>
+
+        {/* Action CTAs */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a
+            href="/resume.pdf.docx"
+            download="Pintu_Singh_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-bold text-sm sm:text-base hover:brightness-110 shadow-lg shadow-amber-500/25 transition-all hover:scale-105"
+          >
+            <FaFileDownload /> View Resume
+          </a>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card text-white font-semibold text-sm sm:text-base hover:border-amber-400/50 hover:bg-slate-900 transition-all hover:scale-105"
+          >
+            Get In Touch <FaArrowRight className="w-4 h-4 text-amber-400" />
+          </Link>
+        </div>
+
+        {/* Social Links & Quick Stack */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs sm:text-sm">
+          <div className="flex items-center gap-2">
+            <span className="text-slate-500 uppercase tracking-widest text-[11px] font-bold">Tech Stack:</span>
+            <div className="flex flex-wrap gap-1.5">
+              {["React", "Django", "Python", "TailwindCSS", "PostgreSQL", "REST APIs"].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300 text-xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/pintusingh123"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition"
+              aria-label="GitHub"
+            >
+              <FaGithub size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/pintu-jhala-1612b5284/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-amber-400 transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={18} />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </section>
   );
 }
 
-export default function TypingAnimatedText() {
-  return <TypingText />;
-}
+export default TypingText;

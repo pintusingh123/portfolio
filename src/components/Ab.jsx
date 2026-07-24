@@ -4,47 +4,33 @@ import Button from "./buttons/Button";
 const timelineData = [
   {
     year: "2025",
-    texts: ["Building something new this year, stay tuned."],
+    texts: ["Building scalable full-stack web products, expanding Python/Django & React capabilities, and actively looking for software engineering roles."],
   },
   {
     year: "2024",
     texts: [
-      "Dove deep into web development, mastering modern technologies and building more than 15 projects.",
-      "Designed a basic E-commerce project using Figma for UI design and developed with TailwindCSS & JavaScript, implementing clean, responsive code.",
+      "Dove deep into web development, mastering modern frontend & backend technologies and building over 15 complete web applications.",
+      "Designed & launched an E-commerce platform UI in Figma and developed it with Tailwind CSS & JavaScript, featuring clean component architecture.",
     ],
   },
   {
     year: "2023",
     texts: [
-      "Shifted focus from kabaddi due to family priorities, but gained clarity on my passion for technology.",
-      "Started my BCA journey without prior programming knowledge and quickly developed a love for coding.",
-      "Bought my first laptop and taught myself C programming and web development—sparking my passion for building software.",
+      "Started my BCA journey, developing a core passion for coding and building digital solutions.",
+      "Acquired my first laptop and self-taught C programming, HTML, CSS, and JavaScript fundamentals.",
     ],
   },
   {
     year: "2022",
     texts: [
-      "Completed 12th grade in the Mathematics stream with a 65% score.",
-      "Balanced academics while pursuing professional cricket, performing well in both fields.",
+      "Completed 12th grade in Mathematics stream with a 67% score.",
+      "Balanced academics while pursuing regional cricket, building discipline, teamwork, and leadership skills.",
     ],
   },
   {
     year: "2021",
     texts: [
-      "Used a computer for the first time while learning Tally — the moment that sparked my curiosity for technology.",
-      "At that time, I had no idea this experience would become the foundation of my journey into the digital world.",
-    ],
-  },
-  {
-    year: "2020",
-    texts: [
-      "Started watching kabaddi and became an instant fan of a young Aslam Imandar, sparking my passion for the sport.",
-    ],
-  },
-  {
-    year: "2003",
-    texts: [
-      "The year I was born, the first future software developer in the family!",
+      "Operated a computer for the first time while learning Tally — the key catalyst that sparked my lifelong curiosity for technology.",
     ],
   },
 ];
@@ -52,68 +38,59 @@ const timelineData = [
 const Ab = () => {
   const [showMore, setShowMore] = useState(false);
 
-  // Split timeline: 2022 & earlier always visible, later only on click
-  const visibleData = showMore
-    ? timelineData
-    : timelineData.filter((item) => parseInt(item.year) <= 2022);
+  // Show recent timeline initially, expand on click
+  const visibleData = showMore ? timelineData : timelineData.slice(0, 3);
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-black via-black to-black p-4">
-      <div className="max-w-4xl mx-auto mt-10 p-6 bg-black text-white rounded-lg shadow-lg">
-        {/* 🌟 Top Center Button */}
-        <div className="mt-10 flex justify-center mb-1">
-          <Button title="Welcome My About Page" />
+    <div className="w-full min-h-screen bg-slate-950 text-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <Button title="My Journey & Growth" />
+          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            The Journey of Pintu Singh
+          </h2>
+          <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+            From discovering computers to building full-stack software applications — here is my evolution as a developer.
+          </p>
         </div>
 
-        {/* 🧠 Title */}
-        <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 to-blue-100 mb-10">
-          The Evolution of Pintu
-        </h2>
-
-        {/* 🕓 Timeline */}
-        <div
-          className={`relative flex flex-col gap-8 overflow-hidden transition-all duration-700 ease-in-out ${
-            showMore ? "max-h-[5000px]" : "max-h-[800px]"
-          } before:absolute before:left-3 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-yellow-400 before:to-blue-500`}
-        >
+        {/* Timeline Container */}
+        <div className="relative pl-6 sm:pl-10 md:pl-14 border-l-2 border-amber-400/40 space-y-8 my-8">
           {visibleData.map((item, index) => (
-            <div key={index} className="relative   pl-28">
-              {/* Year */}
-              <div className="absolute   -left-[1rem] top-0">
-                <Button title={item.year} />
+            <div key={index} className="relative group">
+              {/* Year Dot / Badge */}
+              <div className="absolute -left-[31px] sm:-left-[47px] md:-left-[63px] top-0 flex items-center justify-center">
+                <span className="px-3 py-1 rounded-full bg-slate-900 border border-amber-400 text-amber-300 font-mono font-bold text-xs sm:text-sm shadow-md">
+                  {item.year}
+                </span>
               </div>
 
-              {/* Description */}
-              <div className="space-y-2 mt-3">
-                {item.texts.map((text, i) => (
-                  <p
-                    key={i}
-                    className="text-gray-300 leading-relaxed text-sm sm:text-base"
-                  >
-                    {text}
-                  </p>
-                ))}
+              {/* Card Details */}
+              <div className="glass-card rounded-2xl p-5 sm:p-6 border border-white/10 group-hover:border-amber-400/40 transition-all duration-300 shadow-xl">
+                <div className="space-y-2">
+                  {item.texts.map((text, i) => (
+                    <p
+                      key={i}
+                      className="text-slate-300 text-sm sm:text-base leading-relaxed"
+                    >
+                      {text}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* 🌈 Show More / Less Button */}
-        <div className="mt-8 flex justify-center">
+        {/* Show More / Less Trigger */}
+        <div className="mt-10 flex justify-center">
           <button
             onClick={() => setShowMore(!showMore)}
-            className="relative overflow-hidden px-6 py-2 rounded-full font-semibold text-black   bg-gradient-to-r from-yellow-100 hover:scale-120 to-blue-300 transition-all duration-500"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-slate-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:brightness-110 shadow-lg shadow-amber-500/20 transition-all hover:scale-105"
           >
-            {showMore ? "Show Less ↑" : "Show More ↓"}
+            {showMore ? "Show Less ↑" : "Show Full Timeline ↓"}
           </button>
-        </div>
-
-        {/* Footer */}
-        <div className="mt-12 text-center text-gray-500 text-sm">
-          <p className="mt-2">
-            Designed and developed by{" "}
-            <span className="text-yellow-400">Pintu Singh</span>
-          </p>
         </div>
       </div>
     </div>

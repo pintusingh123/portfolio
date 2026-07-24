@@ -1,102 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./buttons/Button";
-
-const ContactItem = ({ icon, title, content }) => (
-  <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-    <div className="flex flex-col grow mt-2.5 tracking-tight text-white max-md:mt-10">
-      <div className="flex gap-5 text-2xl font-bold leading-9">
-        <img src={icon} alt="" className="shrink-0 aspect-square w-[54px]" />
-        <h3 className="flex-auto self-start">{title}</h3>
-      </div>
-      <div className="pr-2px flex-auto self-start text-lg leading-8 px-5 w-auto text-gray-300">
-        {content}
-      </div>
-    </div>
-  </div>
-);
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaCopy, FaCheck } from "react-icons/fa";
 
 const Contact = () => {
-  // Contact form removed per user request; only contact info is shown.
+  const [copied, setCopied] = useState(false);
 
-  const contactData = [
+  const handleCopyEmail = (email) => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const contactMethods = [
     {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/18179b6ac038d84423d4ee4c96386281587fa212096dec52fd422ee065082649?apiKey=597363a3080546f9b072bf59bebbfd17&",
-      title: "Call us",
-      content: (
-        <>
-          +91-800-364-2596
-          <br />
-          +91-844-199-2003
-        </>
-      ),
+      icon: FaPhoneAlt,
+      title: "Phone & Call",
+      lines: ["+91-800-364-2596", "+91-844-199-2003"],
+      actionLabel: "Call Now",
+      href: "tel:+918003642596",
     },
     {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/c9791065adc6c16870ff4a2dc0b81db91ca10e8583d26b74df0f342958a2a420?apiKey=597363a3080546f9b072bf59bebbfd17&",
-      title: "Email us",
-      content: (
-        <>
-          pintujhala4@gmail.com
-          <br />
-          pintugit982@gmail.com
-        </>
-      ),
+      icon: FaEnvelope,
+      title: "Email Address",
+      lines: ["pintujhala4@gmail.com", "pintugit982@gmail.com"],
+      actionLabel: "Send Email",
+      href: "mailto:pintujhala4@gmail.com",
     },
     {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5f06f2bccb9b07bf8a8046586bd9f211dbb71be297a47e5dd6d80a6ee9193342?apiKey=597363a3080546f9b072bf59bebbfd17&",
-      title: "Visit us",
-      content: (
-        <>
-          jhalawar city rajasthan,
-          <br />, IND
-        </>
-      ),
+      icon: FaMapMarkerAlt,
+      title: "Location",
+      lines: ["Jhalawar City, Rajasthan", "India"],
+      actionLabel: "View Location",
+      href: "#",
     },
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-[1100px] rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/30 backdrop-blur-xl">
-        {/* Heading */}
-        <section className="flex flex-col items-center text-center gap-6 px-4 py-6">
-          <Button title="Contact-US" />
-          <p className="mx-auto max-w-[720px] text-base leading-7 text-gray-300 sm:text-lg">
-            With lots of unique blocks, you can easily build a page without
-            coding. Build your next consultancy website within few minutes.
+    <section className="min-h-screen bg-slate-950 text-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <Button title="Get In Touch" />
+          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Let’s Connect & Collaborate
+          </h2>
+          <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+            I am actively seeking software development roles, projects, and tech opportunities. Feel free to reach out directly via Phone, WhatsApp, or Email!
           </p>
-        </section>
+        </div>
 
-        {/* Contact Info */}
-        <section className="grid gap-6 px-4 py-6 sm:grid-cols-3">
-          {contactData.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center rounded-3xl border border-white/10 bg-slate-950/70 p-5 text-center"
-            >
-              <img
-                src={item.icon}
-                alt={item.title}
-                className="mb-4 h-16 w-16 rounded-full bg-white/5 p-3"
-              />
-              <h3 className="text-xl font-bold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-gray-300">
-                {item.content}
-              </p>
-            </div>
-          ))}
-        </section>
+        {/* Contact Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {contactMethods.map((method, idx) => {
+            const Icon = method.icon;
+            return (
+              <div
+                key={idx}
+                className="glass-card rounded-2xl p-6 flex flex-col items-center text-center border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl"
+              >
+                <div className="h-14 w-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center mb-4">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {method.title}
+                </h3>
+                <div className="text-slate-300 text-sm leading-relaxed mb-6 font-mono">
+                  {method.lines.map((line, i) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
 
-        {/* Contact form removed by request. Keep contact info and CTA. */}
-        <section className="px-4 pb-8">
-          <div className="rounded-3xl bg-slate-950/80 p-6 shadow-xl shadow-black/20 text-center">
-            <p className="text-gray-300">
-              The contact form has been disabled. You can reach me directly via email or phone using the contact information above. Looking forward to connecting with you! and whatsapp me on +91-800-364-2596
+                <a
+                  href={method.href}
+                  className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-amber-300 hover:bg-amber-400 hover:text-slate-950 transition-all"
+                >
+                  {method.actionLabel}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Quick Action Box: WhatsApp & Direct Copy */}
+        <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 text-center space-y-6 shadow-2xl">
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+              Need A Quick Response?
+            </h3>
+            <p className="text-slate-300 text-sm sm:text-base max-w-lg mx-auto">
+              Message me directly on WhatsApp or copy my primary email address for instant recruiter communication.
             </p>
-            
-             
           </div>
-        </section>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://wa.me/918003642596?text=Hi%20Pintu,%20I%20saw%20your%20portfolio!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/20 transition hover:scale-105"
+            >
+              <FaWhatsapp className="w-5 h-5" /> Chat on WhatsApp
+            </a>
+
+            <button
+              onClick={() => handleCopyEmail("pintujhala4@gmail.com")}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full glass-card border border-white/20 text-white font-semibold text-sm sm:text-base hover:border-amber-400/50 transition hover:scale-105"
+            >
+              {copied ? (
+                <>
+                  <FaCheck className="text-emerald-400" /> Email Copied!
+                </>
+              ) : (
+                <>
+                  <FaCopy className="text-amber-400" /> Copy Email Address
+                </>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
