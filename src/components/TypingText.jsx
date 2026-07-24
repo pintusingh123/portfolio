@@ -63,7 +63,7 @@ function TypingText({
   ]);
 
   const heroStats = [
-    { label: "Projects Completed", value: "15+", icon: FaRocket },
+    { label: "Projects Completed", value: "7+", icon: FaRocket },
     { label: "Core Tech Stack", value: "React & Django", icon: FaCode },
     { label: "CGPA (Kota Univ)", value: "7.1 / 10", icon: FaCheckCircle },
     { label: "UI Polish & Speed", value: "Fast 60 FPS", icon: FaLaptopCode },

@@ -9,10 +9,22 @@ import {
   FaExternalLinkAlt,
   FaGithub,
   FaFilter,
+  FaShoppingCart,
 } from "react-icons/fa";
 import Button from "./buttons/Button";
 
 const projects = [
+  {
+    title: "E-Commerce Platform",
+    icon: FaShoppingCart,
+    category: "Full Stack",
+    description:
+      "Full-stack e-commerce platform built with React.js, Django REST Framework (DRF), and PostgreSQL. Features JWT authentication, product catalog search, cart management, and admin dashboard.",
+    live: "https://ecommerce-frontend-pi-roan.vercel.app/",
+    github: "https://github.com/pintusingh123",
+    tags: ["React", "Django DRF", "PostgreSQL", "JWT Auth", "TailwindCSS"],
+    featured: true,
+  },
   {
     title: "TaskFlow App",
     icon: FaTasks,
