@@ -6,7 +6,6 @@ function Footer() {
   const navLinks = [
     { label: "Home", to: "/" },
     { label: "About", to: "/about" },
-    { label: "Blog", to: "/blog" },
     { label: "Contact", to: "/contact" },
   ];
 
