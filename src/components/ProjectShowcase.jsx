@@ -72,6 +72,25 @@ const projects = [
 
 const categories = ["All", "Full Stack", "Frontend"];
 
+const gridVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+};
+
 export default function ProjectShowcase() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -102,9 +121,9 @@ export default function ProjectShowcase() {
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
               selectedCategory === cat
-                ? "bg-[#c0c1ff] text-[#07006c] shadow-md shadow-[#c0c1ff]/20 font-bold"
+                ? "bg-[#c0c1ff] text-[#07006c] shadow-md shadow-[#c0c1ff]/30 font-bold scale-105"
                 : "glass-card text-[#c7c4d7] hover:text-white hover:border-[#c0c1ff]/40"
             }`}
           >
@@ -113,20 +132,23 @@ export default function ProjectShowcase() {
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AnimatePresence>
+      {/* Projects Grid with Smooth AnimatePresence */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedCategory}
+          variants={gridVariants}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[350px]"
+        >
           {filteredProjects.map((project) => {
             const Icon = project.icon;
             return (
               <motion.article
-                layout
                 key={project.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ scale: 1.02 }}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -4 }}
                 whileTap={{ scale: 0.98 }}
                 className="group relative animated-border-card glass-card rounded-2xl p-6 flex flex-col justify-between border border-[#c0c1ff]/15 hover:border-transparent transition-all duration-300 shadow-xl hover:shadow-[0_10px_35px_-5px_rgba(192,193,255,0.25)] cursor-pointer"
               >
@@ -197,8 +219,8 @@ export default function ProjectShowcase() {
               </motion.article>
             );
           })}
-        </AnimatePresence>
-      </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }
