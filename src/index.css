@@ -1,14 +1,51 @@
 @import "tailwindcss";
 
+@theme {
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-variant: #2d3449;
+
+  --color-primary: #c0c1ff;
+  --color-primary-container: #8083ff;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+
+  --color-secondary: #4cd7f6;
+  --color-secondary-container: #03b5d3;
+  --color-secondary-fixed: #acedff;
+  --color-secondary-fixed-dim: #4cd7f6;
+
+  --color-tertiary: #ffafd3;
+  --color-tertiary-container: #e364a7;
+  --color-tertiary-fixed: #ffd8e7;
+  --color-tertiary-fixed-dim: #ffafd3;
+
+  --color-on-surface: #dae2fd;
+  --color-on-background: #dae2fd;
+  --color-on-surface-variant: #c7c4d7;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+
+  --font-display: 'Geist', 'Inter', system-ui, sans-serif;
+  --font-body-md: 'Inter', system-ui, sans-serif;
+  --font-code-sm: 'JetBrains Mono', monospace;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
-    background-color: #030712;
-    color: #f3f4f6;
+    background-color: #0b1326;
+    color: #dae2fd;
     overflow-x: hidden;
   }
 }
@@ -19,53 +56,107 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #0b1326;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
+  background: #222a3d;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #2d3449;
 }
 
-/* Custom Glassmorphism & Animations */
+/* Custom Animations from Stitch AI UI Config */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Stitch AI Glass Panel & Grid Overlay */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .glass-card {
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(23, 31, 51, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(192, 193, 255, 0.12);
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.glass-card-hover:hover {
-  border-color: rgba(250, 204, 21, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(250, 204, 21, 0.15);
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(192, 193, 255, 0.4);
   transform: translateY(-2px);
 }
 
-.glow-yellow-sm {
-  box-shadow: 0 0 20px -5px rgba(250, 204, 21, 0.25);
+.grid-overlay {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
-.glow-blue-sm {
-  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.25);
+/* Premium Animated Border for Project Cards */
+@keyframes borderGlowShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Gradient Text Helper */
-.gradient-text-yellow {
-  background: linear-gradient(135deg, #ffffff 0%, #facc15 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.animated-border-card {
+  position: relative;
 }
 
-.gradient-text-blue {
-  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.animated-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 1.05rem;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #c0c1ff, #4cd7f6, #ffafd3, #8083ff, #c0c1ff);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  animation: borderGlowShift 4s ease infinite;
+  z-index: 10;
+}
+
+.animated-border-card:hover::before,
+.animated-border-card:active::before,
+.animated-border-card:focus-within::before {
+  opacity: 1;
 }

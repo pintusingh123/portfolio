@@ -32,10 +32,10 @@ export default function Skill() {
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-14">
         <Button title="Technical Stack" />
-        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Skills & Core Competencies
         </h2>
-        <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+        <p className="mt-3 text-[#c7c4d7] max-w-xl text-sm sm:text-base">
           Proven experience with modern technologies, frameworks, and web development practices.
         </p>
       </div>
@@ -51,13 +51,13 @@ export default function Skill() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl p-6 sm:p-7 border border-white/10 hover:border-amber-400/40 transition-all duration-300 shadow-xl"
+              className="glass-card rounded-2xl p-6 sm:p-7 border border-[#c0c1ff]/15 hover:border-[#4cd7f6]/40 transition-all duration-300 shadow-xl"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/10 text-amber-400 border border-amber-400/30">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c0c1ff]/15 text-[#4cd7f6] border border-[#c0c1ff]/30">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-bold text-white tracking-wide">
+                <h3 className="text-lg font-bold text-[#dae2fd] tracking-wide">
                   {cat.title}
                 </h3>
               </div>
@@ -66,7 +66,7 @@ export default function Skill() {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-200 text-xs sm:text-sm font-medium hover:border-amber-400/40 hover:bg-amber-400/10 hover:text-amber-300 transition-all cursor-default"
+                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[#131b2e] border border-[#908fa0]/30 text-[#dae2fd] text-xs sm:text-sm font-medium hover:border-[#c0c1ff]/40 hover:bg-[#c0c1ff]/10 hover:text-[#c0c1ff] transition-all cursor-default"
                   >
                     {skill}
                   </span>

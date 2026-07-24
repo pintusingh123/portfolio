@@ -40,10 +40,10 @@ function Services() {
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-12">
         <Button title="Services & Capabilities" />
-        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           What I Bring To The Table
         </h2>
-        <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+        <p className="mt-3 text-[#c7c4d7] max-w-xl text-sm sm:text-base">
           End-to-end technical solutions designed to deliver scalable code, exceptional visual polish, and seamless performance.
         </p>
       </div>
@@ -55,29 +55,29 @@ function Services() {
           return (
             <div
               key={service.num}
-              className="group relative glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-white/10 hover:border-amber-400/50 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-black/40 overflow-hidden"
+              className="group relative glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-[#c0c1ff]/15 hover:border-[#4cd7f6]/40 transition-all duration-300 hover:-translate-y-1 shadow-xl shadow-[#060e20]/40 overflow-hidden"
             >
               {/* Background Glow Accent on Hover */}
-              <div className="absolute -right-16 -top-16 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl group-hover:bg-amber-400/25 transition-all duration-500 pointer-events-none" />
+              <div className="absolute -right-16 -top-16 w-32 h-32 bg-[#4cd7f6]/10 rounded-full blur-2xl group-hover:bg-[#4cd7f6]/25 transition-all duration-500 pointer-events-none" />
 
               <div>
                 {/* Header row with Number and Icon */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-3xl font-extrabold font-mono text-amber-400/80 group-hover:text-amber-300 transition">
+                  <span className="text-3xl font-extrabold font-mono text-[#c0c1ff]/80 group-hover:text-[#c0c1ff] transition">
                     {service.num}
                   </span>
-                  <div className="h-12 w-12 rounded-xl bg-amber-400/10 border border-amber-400/20 text-amber-400 flex items-center justify-center group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-300 shadow-md">
+                  <div className="h-12 w-12 rounded-xl bg-[#c0c1ff]/10 border border-[#c0c1ff]/20 text-[#4cd7f6] flex items-center justify-center group-hover:bg-[#4cd7f6] group-hover:text-[#0b1326] transition-all duration-300 shadow-md">
                     <IconComponent className="h-6 w-6" />
                   </div>
                 </div>
 
                 {/* Service Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-amber-300 transition">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#dae2fd] mb-3 group-hover:text-[#c0c1ff] transition">
                   {service.title}
                 </h3>
 
                 {/* Service Description */}
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                <p className="text-[#c7c4d7] text-sm sm:text-base leading-relaxed mb-6">
                   {service.desc}
                 </p>
 
@@ -86,7 +86,7 @@ function Services() {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-medium text-slate-300 group-hover:border-amber-400/30 transition"
+                      className="px-2.5 py-1 rounded-md bg-[#131b2e] border border-[#908fa0]/30 text-xs font-medium text-[#dae2fd] group-hover:border-[#4cd7f6]/30 transition"
                     >
                       {tag}
                     </span>
@@ -95,14 +95,14 @@ function Services() {
               </div>
 
               {/* Action Link */}
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-4 border-t border-[#908fa0]/20 flex items-center justify-between">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-amber-400 group-hover:text-amber-300 transition"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#4cd7f6] group-hover:text-[#c0c1ff] transition"
                 >
                   Discuss Requirement <FaArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <span className="text-xs text-slate-500 font-mono">Custom Built</span>
+                <span className="text-xs text-[#908fa0] font-mono">Custom Built</span>
               </div>
             </div>
           );

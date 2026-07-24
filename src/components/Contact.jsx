@@ -36,15 +36,15 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-slate-950 text-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-[#0b1326] text-[#dae2fd] pt-24 pb-16 px-4 sm:px-6 lg:px-8 grid-overlay">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
           <Button title="Get In Touch" />
-          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-[#dae2fd] tracking-tight font-display">
             Let’s Connect & Collaborate
           </h2>
-          <p className="mt-3 text-slate-400 max-w-xl text-sm sm:text-base">
+          <p className="mt-3 text-[#c7c4d7] max-w-xl text-sm sm:text-base">
             I am actively seeking software development roles, projects, and tech opportunities. Feel free to reach out directly via Phone, WhatsApp, or Email!
           </p>
         </div>
@@ -56,15 +56,15 @@ const Contact = () => {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl p-6 flex flex-col items-center text-center border border-white/10 hover:border-amber-400/50 transition-all duration-300 shadow-xl"
+                className="glass-card rounded-2xl p-6 flex flex-col items-center text-center border border-[#c0c1ff]/15 hover:border-[#4cd7f6]/40 transition-all duration-300 shadow-xl"
               >
-                <div className="h-14 w-14 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center mb-4">
+                <div className="h-14 w-14 rounded-2xl bg-[#c0c1ff]/15 border border-[#c0c1ff]/30 text-[#4cd7f6] flex items-center justify-center mb-4">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-[#dae2fd] mb-2">
                   {method.title}
                 </h3>
-                <div className="text-slate-300 text-sm leading-relaxed mb-6 font-mono">
+                <div className="text-[#c7c4d7] text-sm leading-relaxed mb-6 font-mono">
                   {method.lines.map((line, i) => (
                     <p key={i}>{line}</p>
                   ))}
@@ -72,7 +72,7 @@ const Contact = () => {
 
                 <a
                   href={method.href}
-                  className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-amber-300 hover:bg-amber-400 hover:text-slate-950 transition-all"
+                  className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-xl bg-[#131b2e] border border-[#908fa0]/30 text-xs font-semibold text-[#4cd7f6] hover:bg-[#c0c1ff] hover:text-[#07006c] transition-all"
                 >
                   {method.actionLabel}
                 </a>
@@ -82,12 +82,12 @@ const Contact = () => {
         </div>
 
         {/* Quick Action Box: WhatsApp & Direct Copy */}
-        <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 text-center space-y-6 shadow-2xl">
+        <div className="glass-card rounded-2xl p-6 sm:p-8 border border-[#c0c1ff]/15 text-center space-y-6 shadow-2xl">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#dae2fd] mb-2">
               Need A Quick Response?
             </h3>
-            <p className="text-slate-300 text-sm sm:text-base max-w-lg mx-auto">
+            <p className="text-[#c7c4d7] text-sm sm:text-base max-w-lg mx-auto">
               Message me directly on WhatsApp or copy my primary email address for instant recruiter communication.
             </p>
           </div>
@@ -97,22 +97,22 @@ const Contact = () => {
               href="https://wa.me/918003642596?text=Hi%20Pintu,%20I%20saw%20your%20portfolio!"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/20 transition hover:scale-105"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#4cd7f6] hover:brightness-110 text-[#001f26] font-bold text-sm sm:text-base shadow-lg shadow-[#4cd7f6]/20 transition hover:scale-105"
             >
               <FaWhatsapp className="w-5 h-5" /> Chat on WhatsApp
             </a>
 
             <button
               onClick={() => handleCopyEmail("pintujhala4@gmail.com")}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full glass-card border border-white/20 text-white font-semibold text-sm sm:text-base hover:border-amber-400/50 transition hover:scale-105"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full glass-panel border border-[#c0c1ff]/30 text-[#dae2fd] font-semibold text-sm sm:text-base hover:border-[#4cd7f6]/50 transition hover:scale-105"
             >
               {copied ? (
                 <>
-                  <FaCheck className="text-emerald-400" /> Email Copied!
+                  <FaCheck className="text-[#4cd7f6]" /> Email Copied!
                 </>
               ) : (
                 <>
-                  <FaCopy className="text-amber-400" /> Copy Email Address
+                  <FaCopy className="text-[#c0c1ff]" /> Copy Email Address
                 </>
               )}
             </button>

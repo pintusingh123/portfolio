@@ -17,7 +17,7 @@ function Navbar() {
       name: "Resume",
       path: "/resume.pdf.docx",
       icon: <FaFileAlt size={18} />,
-      download: "Bintu_Singh_Resume.pdf",
+      download: "Pintu_Singh_Resume.docx",
       external: true,
     },
     {
@@ -38,16 +38,16 @@ function Navbar() {
 
   return (
     <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[92%] max-w-4xl z-50">
-      <nav className="glass-card rounded-full px-4 py-2.5 sm:px-6 sm:py-3 border border-white/10 shadow-2xl shadow-black/80 flex items-center justify-between">
+      <nav className="glass-panel rounded-full px-4 py-2.5 sm:px-6 sm:py-3 border border-[#c0c1ff]/20 shadow-2xl shadow-[#060e20]/80 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link
           to="/"
           className="flex items-center gap-2 text-white font-bold tracking-tight text-base sm:text-lg group"
         >
-          <span className="h-8 w-8 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-200 text-slate-950 flex items-center justify-center font-extrabold text-sm shadow-md shadow-amber-400/20 group-hover:scale-105 transition-transform">
+          <span className="h-8 w-8 rounded-full bg-gradient-to-tr from-[#c0c1ff] to-[#4cd7f6] text-[#0b1326] flex items-center justify-center font-extrabold text-sm shadow-md shadow-[#c0c1ff]/20 group-hover:scale-105 transition-transform">
             PS
           </span>
-          <span className="hidden xs:inline bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+          <span className="hidden xs:inline bg-gradient-to-r from-[#dae2fd] via-[#c0c1ff] to-[#4cd7f6] bg-clip-text text-transparent">
             Pintu Singh
           </span>
         </Link>
@@ -62,11 +62,12 @@ function Navbar() {
                 <li key={item.name}>
                   <a
                     href={item.path}
+                    download={item.download}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-200"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium text-[#c7c4d7] hover:text-white hover:bg-[#222a3d]/80 transition-all duration-200"
                   >
-                    <span className="text-amber-400">{item.icon}</span>
+                    <span className="text-[#4cd7f6]">{item.icon}</span>
                     <span>{item.name}</span>
                   </a>
                 </li>
@@ -77,12 +78,13 @@ function Navbar() {
               <li key={item.name}>
                 <Link
                   to={item.path}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${active
-                      ? "bg-amber-400/20 text-amber-300 border border-amber-400/40 shadow-sm"
-                      : "text-slate-300 hover:text-white hover:bg-white/10"
-                    }`}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                    active
+                      ? "bg-[#c0c1ff]/20 text-[#c0c1ff] border border-[#c0c1ff]/40 shadow-sm"
+                      : "text-[#c7c4d7] hover:text-white hover:bg-[#222a3d]/80"
+                  }`}
                 >
-                  <span className={active ? "text-amber-300" : "text-slate-400"}>
+                  <span className={active ? "text-[#c0c1ff]" : "text-[#908fa0]"}>
                     {item.icon}
                   </span>
                   <span>{item.name}</span>
@@ -92,11 +94,11 @@ function Navbar() {
           })}
         </ul>
 
-        {/* Action button - Contact Quick Link */}
+        {/* Action button - Hire Me Quick Link */}
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden sm:inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 text-xs font-semibold hover:brightness-110 shadow-md shadow-amber-500/20 transition-all"
+            className="hidden sm:inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-[#c0c1ff] to-[#4cd7f6] text-[#07006c] text-xs font-bold hover:brightness-110 shadow-md shadow-[#c0c1ff]/20 transition-all glow-button"
           >
             Hire Me
           </Link>
@@ -104,7 +106,7 @@ function Navbar() {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition"
+            className="md:hidden p-2 rounded-full text-[#c7c4d7] hover:text-white hover:bg-white/10 transition"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -114,7 +116,7 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 glass-card rounded-2xl p-4 border border-white/10 shadow-2xl animate-fadeIn">
+        <div className="md:hidden mt-2 glass-panel rounded-2xl p-4 border border-[#c0c1ff]/20 shadow-2xl animate-fade-in-up">
           <ul className="flex flex-col gap-2">
             {navItems.map((item) => {
               const active = !item.external && isActive(item.path);
@@ -124,12 +126,13 @@ function Navbar() {
                   <li key={item.name}>
                     <a
                       href={item.path}
+                      download={item.download}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 transition"
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-[#dae2fd] hover:bg-white/10 transition"
                     >
-                      <span className="text-amber-400">{item.icon}</span>
+                      <span className="text-[#4cd7f6]">{item.icon}</span>
                       <span>{item.name}</span>
                     </a>
                   </li>
@@ -141,12 +144,13 @@ function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition ${active
-                        ? "bg-amber-400/20 text-amber-300 font-semibold border border-amber-400/30"
-                        : "text-slate-200 hover:bg-white/10"
-                      }`}
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition ${
+                      active
+                        ? "bg-[#c0c1ff]/20 text-[#c0c1ff] font-semibold border border-[#c0c1ff]/30"
+                        : "text-[#dae2fd] hover:bg-white/10"
+                    }`}
                   >
-                    <span className={active ? "text-amber-300" : "text-slate-400"}>
+                    <span className={active ? "text-[#c0c1ff]" : "text-[#908fa0]"}>
                       {item.icon}
                     </span>
                     <span>{item.name}</span>

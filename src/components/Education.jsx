@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./buttons/Button";
-import { FaGraduationCap, FaSchool, FaBookReader } from "react-icons/fa";
+import { FaGraduationCap, FaSchool } from "react-icons/fa";
 
 const educationTabs = [
   {
@@ -39,15 +39,15 @@ export default function Education() {
       {/* Section Header */}
       <div className="text-center mb-10 flex flex-col items-center">
         <Button title="Academic Foundation" />
-        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Education & Qualifications
         </h2>
       </div>
 
       {/* Main Glass Container */}
-      <div className="glass-card rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+      <div className="glass-card rounded-2xl border border-[#c0c1ff]/15 shadow-2xl overflow-hidden">
         {/* Navigation Tabs */}
-        <div className="flex border-b border-white/10 bg-slate-950/60 p-2 gap-2 overflow-x-auto">
+        <div className="flex border-b border-[#908fa0]/20 bg-[#060e20]/60 p-2 gap-2 overflow-x-auto">
           {educationTabs.map((tab) => {
             const Icon = tab.icon;
             const isSelected = activeTab.id === tab.id;
@@ -57,11 +57,11 @@ export default function Education() {
                 onClick={() => setActiveTab(tab)}
                 className={`flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm font-semibold transition-all whitespace-nowrap flex-1 justify-center ${
                   isSelected
-                    ? "bg-amber-400/15 text-amber-300 border border-amber-400/40 shadow-md"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[#c0c1ff]/20 text-[#c0c1ff] border border-[#c0c1ff]/40 shadow-md"
+                    : "text-[#908fa0] hover:text-white hover:bg-white/5"
                 }`}
               >
-                <Icon className={isSelected ? "text-amber-300" : "text-slate-400"} />
+                <Icon className={isSelected ? "text-[#c0c1ff]" : "text-[#908fa0]"} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -79,24 +79,24 @@ export default function Education() {
               transition={{ duration: 0.25 }}
               className="space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#908fa0]/20">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#dae2fd]">
                     {activeTab.title}
                   </h3>
-                  <p className="text-amber-400 text-sm font-medium mt-1">
+                  <p className="text-[#4cd7f6] text-sm font-medium mt-1">
                     {activeTab.institution}
                   </p>
                 </div>
-                <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold font-mono w-fit">
+                <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#c0c1ff]/10 border border-[#c0c1ff]/30 text-[#c0c1ff] text-xs font-bold font-mono w-fit">
                   {activeTab.score}
                 </span>
               </div>
 
               <div className="space-y-2 pt-2">
                 {activeTab.highlights.map((point, index) => (
-                  <div key={index} className="flex items-start gap-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-                    <span className="text-amber-400 mt-1">▹</span>
+                  <div key={index} className="flex items-start gap-3 text-[#c7c4d7] text-sm sm:text-base leading-relaxed">
+                    <span className="text-[#4cd7f6] mt-1">▹</span>
                     <p>{point}</p>
                   </div>
                 ))}
