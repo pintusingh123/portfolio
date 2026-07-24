@@ -170,7 +170,7 @@ export default function ProjectShowcase() {
                 {/* Featured Ribbon */}
                 {project.featured && (
                   <div className="absolute right-4 top-4 rounded-full bg-[#c0c1ff]/15 border border-[#c0c1ff]/40 px-3 py-1 text-[10px] font-bold uppercase text-[#c0c1ff] tracking-wider">
-                    ★ Featured
+                    Featured
                   </div>
                 )}
 
