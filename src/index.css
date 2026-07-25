@@ -142,23 +142,25 @@
 
 .animated-border-card {
   position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .animated-border-card::before {
   content: '';
   position: absolute;
-  inset: -1.5px;
-  border-radius: 1.05rem;
-  padding: 1.5px;
-  background: linear-gradient(90deg, #c0c1ff, #4cd7f6, #ffafd3, #8083ff, #c0c1ff);
-  background-size: 300% 300%;
+  inset: -2px;
+  border-radius: 1.15rem;
+  padding: 2px;
+  background: linear-gradient(90deg, #c0c1ff, #4cd7f6, #ff3b9a, #8083ff, #00f2fe, #ffafd3, #c0c1ff);
+  background-size: 400% 400%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
   pointer-events: none;
-  animation: borderGlowShift 4s ease infinite;
+  animation: borderGlowShift 3s linear infinite;
   z-index: 10;
 }
 
@@ -166,4 +168,9 @@
 .animated-border-card:active::before,
 .animated-border-card:focus-within::before {
   opacity: 1;
+}
+
+.animated-border-card:active {
+  transform: scale(0.985);
+  box-shadow: 0 0 35px rgba(76, 215, 246, 0.4);
 }
