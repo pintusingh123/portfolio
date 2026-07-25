@@ -201,8 +201,8 @@ export default function ProjectShowcase() {
               <motion.article
                 key={project.title}
                 variants={cardVariants}
-                whileHover={{ y: -6 }}
-                className="group relative bg-[#0e172a]/90 backdrop-blur-xl rounded-2xl border border-[#c0c1ff]/20 hover:border-[#4cd7f6]/60 transition-all duration-500 shadow-xl hover:shadow-[0_15px_40px_-10px_rgba(76,215,246,0.3)] flex flex-col justify-between overflow-hidden"
+                onClick={() => setActiveModalProject(project)}
+                className="animated-border-card group relative bg-[#0e172a]/95 backdrop-blur-xl border border-[#c0c1ff]/20 hover:border-transparent transition-colors duration-300 flex flex-col justify-between cursor-pointer"
               >
                 {/* macOS Code Header */}
                 <div className="bg-[#152238] px-4 py-2.5 border-b border-[#c0c1ff]/15 flex items-center justify-between">
@@ -225,9 +225,6 @@ export default function ProjectShowcase() {
 
                 {/* Card Main Body */}
                 <div className="p-6 flex-1 flex flex-col justify-between relative z-10">
-                  {/* Glow accent */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#4cd7f6]/10 rounded-full blur-2xl group-hover:bg-[#4cd7f6]/25 transition-all duration-500 pointer-events-none" />
-
                   <div>
                     {/* Header Icon + Title */}
                     <div className="flex items-center gap-3.5 mb-4">
@@ -276,6 +273,7 @@ export default function ProjectShowcase() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-lg bg-[#16233d] border border-[#c0c1ff]/20 text-[#dae2fd] hover:text-white hover:border-[#c0c1ff]/50 transition"
                         title="View Source Code"
                       >
@@ -285,6 +283,7 @@ export default function ProjectShowcase() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#c0c1ff] to-[#4cd7f6] px-3.5 py-1.5 text-xs font-bold text-[#07006c] hover:brightness-110 shadow-md transition hover:scale-105"
                       >
                         Live Demo <FaExternalLinkAlt size={10} />

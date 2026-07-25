@@ -10,6 +10,7 @@ import {
   FaCode,
   FaRocket,
   FaLaptopCode,
+  FaTerminal,
 } from "react-icons/fa";
 import Hero3DCanvas from "../ui/Hero3DCanvas";
 
@@ -17,8 +18,8 @@ function HeroSection({
   words = [
     "Full Stack Web Developer",
     "Django & Python Specialist",
-    "React & Modern UI Developer",
-    "Backend & REST API Architect",
+    "React & Modern UI Architect",
+    "Backend & REST API Specialist",
   ],
   typingSpeed = 90,
   deleteSpeed = 60,
@@ -73,20 +74,20 @@ function HeroSection({
   ]);
 
   const heroStats = [
-    { label: "Production Apps", value: "6+", icon: FaRocket },
+    { label: "Production Projects", value: "15+", icon: FaRocket },
     { label: "Core Stack", value: "React & Django", icon: FaCode },
     { label: "CGPA (Kota Univ)", value: "7.1 / 10", icon: FaCheckCircle },
     { label: "Interactive 3D UI", value: "60 FPS", icon: FaLaptopCode },
   ];
 
   return (
-    <section className="relative min-h-[95vh] w-full max-w-full flex flex-col items-center justify-center pt-28 pb-16 px-4 text-center overflow-hidden bg-[#0b1326]">
-      {/* 3D Interactive Three.js Canvas */}
+    <section className="relative min-h-[95vh] w-full max-w-full flex flex-col items-center justify-center pt-28 pb-16 px-4 text-center overflow-hidden bg-[#070d19]">
+      {/* 3D Interactive Three.js WebGL Canvas */}
       <Hero3DCanvas />
 
       {/* Ambient Spotlight Background Glow */}
       <div
-        className="hidden md:block pointer-events-none fixed -z-10 w-[500px] h-[500px] rounded-full opacity-20 bg-gradient-to-tr from-[#c0c1ff] via-[#4cd7f6] to-[#8083ff] blur-3xl transition-transform duration-700 ease-out transform -translate-x-1/2 -translate-y-1/2"
+        className="hidden md:block pointer-events-none fixed -z-10 w-[600px] h-[600px] rounded-full opacity-25 bg-gradient-to-tr from-[#ffd700] via-[#4cd7f6] to-[#ff3b9a] blur-3xl transition-transform duration-700 ease-out transform -translate-x-1/2 -translate-y-1/2"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
@@ -104,7 +105,7 @@ function HeroSection({
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4cd7f6] opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#4cd7f6]"></span>
         </span>
-        Available for Full-time Developer Roles
+        Available for Full-time Roles & Remote Projects
       </motion.div>
 
       {/* Main Headline & Hero Content */}
@@ -112,23 +113,25 @@ function HeroSection({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="relative z-10 max-w-4xl"
+        className="relative z-10 max-w-5xl"
       >
-        <p className="text-[#c0c1ff] font-bold tracking-widest text-sm uppercase mb-2">
-          Pintu Singh — Software Engineer
+        <p className="text-[#ffd700] font-bold tracking-widest text-xs sm:text-sm uppercase mb-3 flex items-center justify-center gap-2">
+          <span>Pintu Singh</span>
+          <span className="text-[#4cd7f6]">•</span>
+          <span>Full Stack Engineer</span>
         </p>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#dae2fd] tracking-tight leading-tight mb-4 font-display">
-          Crafting High-Performance <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-[#c0c1ff] via-[#4cd7f6] to-[#ffafd3] bg-clip-text text-transparent">
-            Modern Web Apps
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#dae2fd] tracking-tight leading-tight mb-5 font-display">
+          Building Scalable Systems & <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-[#4cd7f6] via-[#ffd700] to-[#c0c1ff] bg-clip-text text-transparent">
+            High-Impact Digital Products
           </span>
         </h1>
 
         {/* Dynamic Typing Subtitle */}
         <div className="h-12 flex items-center justify-center mb-6">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-mono text-[#c7c4d7] font-semibold">
-            I am a{" "}
+            Specializing in{" "}
             <span className="text-[#4cd7f6] border-b-2 border-[#4cd7f6]/50 pb-0.5">
               {currentText}
             </span>
@@ -139,7 +142,7 @@ function HeroSection({
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              className="ml-1 text-[#4cd7f6]"
+              className="ml-1 text-[#ffd700]"
             >
               |
             </motion.span>
@@ -147,29 +150,68 @@ function HeroSection({
         </div>
 
         {/* Brief Intro Paragraph */}
-        <p className="text-[#c7c4d7] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-          Full-Stack Software Engineer building responsive user interfaces with <strong className="text-[#dae2fd] font-semibold">React & Three.js</strong> and backend APIs powered by <strong className="text-[#dae2fd] font-semibold">Django, Python & PostgreSQL</strong>.
+        <p className="text-[#c7c4d7] text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+          Engineered <strong className="text-[#dae2fd] font-semibold">15+ web applications</strong> combining high-speed <strong className="text-[#4cd7f6] font-semibold">React & Three.js</strong> user interfaces with secure <strong className="text-[#ffd700] font-semibold">Django REST API & PostgreSQL</strong> backends.
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
           <a
             href="/resume.pdf.docx"
             download="Pintu_Singh_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#c0c1ff] to-[#4cd7f6] text-[#07006c] font-bold text-sm sm:text-base hover:brightness-110 shadow-xl shadow-[#4cd7f6]/25 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#ffd700] via-[#4cd7f6] to-[#c0c1ff] text-[#07006c] font-black text-sm sm:text-base hover:brightness-110 shadow-xl shadow-[#4cd7f6]/25 transition-all hover:scale-105"
           >
             <FaFileDownload /> Download Resume
           </a>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#142138]/90 backdrop-blur-md border border-[#c0c1ff]/30 text-[#dae2fd] font-bold text-sm sm:text-base hover:border-[#4cd7f6]/60 hover:bg-[#1a2b4a] transition-all hover:scale-105 shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#131f37]/90 backdrop-blur-md border border-[#c0c1ff]/30 text-[#dae2fd] font-bold text-sm sm:text-base hover:border-[#ffd700]/60 hover:bg-[#1a2b4a] transition-all hover:scale-105 shadow-md"
           >
-            Get In Touch <FaArrowRight className="w-4 h-4 text-[#4cd7f6]" />
+            Get In Touch <FaArrowRight className="w-4 h-4 text-[#ffd700]" />
           </Link>
         </div>
+
+        {/* Interactive macOS Developer Console Terminal Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="max-w-2xl mx-auto mb-10 text-left bg-[#0c1527]/90 backdrop-blur-xl border border-[#c0c1ff]/20 rounded-xl overflow-hidden shadow-2xl"
+        >
+          <div className="bg-[#152238] px-4 py-2 border-b border-[#c0c1ff]/15 flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+            </div>
+            <span className="text-[11px] font-mono text-[#908fa0] flex items-center gap-1.5">
+              <FaTerminal size={11} className="text-[#ffd700]" /> engineer-environment.js
+            </span>
+            <span className="text-[10px] font-mono text-[#00ff87]">v2.4.0</span>
+          </div>
+
+          <div className="p-4 font-mono text-xs space-y-2 text-[#dae2fd]">
+            <p className="flex items-center gap-2 text-[#908fa0]">
+              <span className="text-[#00ff87]">➜</span>
+              <span className="text-[#4cd7f6]">~</span>
+              <span>pintu.getEngineeringProfile()</span>
+            </p>
+            <div className="pl-4 space-y-1 text-[#c7c4d7]">
+              <p>
+                <span className="text-[#ffd700]">status:</span> <span className="text-[#00ff87]">"🟢 Available for Full-Time / Contract Roles"</span>
+              </p>
+              <p>
+                <span className="text-[#ffd700]">frontend:</span> <span className="text-[#4cd7f6]">["React", "Vite", "Three.js WebGL", "TailwindCSS"]</span>
+              </p>
+              <p>
+                <span className="text-[#ffd700]">backend:</span> <span className="text-[#c0c1ff]">["Django", "Python", "REST APIs", "PostgreSQL"]</span>
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Hero Stats Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 max-w-3xl mx-auto">
@@ -181,10 +223,10 @@ function HeroSection({
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
-                className="bg-[#0e172a]/80 backdrop-blur-md rounded-2xl p-4 border border-[#c0c1ff]/20 flex flex-col items-center justify-center hover:border-[#4cd7f6]/50 transition-all shadow-lg"
+                className="bg-[#0e172a]/80 backdrop-blur-md rounded-2xl p-4 border border-[#c0c1ff]/20 flex flex-col items-center justify-center hover:border-[#ffd700]/50 transition-all shadow-lg group"
               >
-                <Icon className="text-[#4cd7f6] mb-1 text-lg" />
-                <span className="text-xl sm:text-2xl font-black text-[#c0c1ff] font-mono">
+                <Icon className="text-[#4cd7f6] group-hover:text-[#ffd700] mb-1 text-lg transition-colors" />
+                <span className="text-xl sm:text-2xl font-black text-[#c0c1ff] group-hover:text-[#ffd700] font-mono transition-colors">
                   {stat.value}
                 </span>
                 <span className="text-xs text-[#908fa0] mt-0.5 font-medium">
@@ -195,15 +237,15 @@ function HeroSection({
           })}
         </div>
 
-        {/* Social Links & Quick Stack */}
+        {/* Social Links & Tech Badges */}
         <div className="pt-6 border-t border-[#908fa0]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#c7c4d7] text-xs sm:text-sm">
           <div className="flex items-center gap-2">
-            <span className="text-[#908fa0] uppercase tracking-widest text-[11px] font-bold">Tech Stack:</span>
+            <span className="text-[#908fa0] uppercase tracking-widest text-[11px] font-bold">Primary Stack:</span>
             <div className="flex flex-wrap gap-1.5">
-              {["React", "Three.js", "Django", "Python", "PostgreSQL", "REST APIs"].map((tech) => (
+              {["React 19", "Three.js", "Django", "Python", "PostgreSQL", "REST APIs"].map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-md bg-[#142138] border border-[#908fa0]/30 text-[#dae2fd] text-xs font-medium"
+                  className="px-2.5 py-1 rounded-md bg-[#142138] border border-[#908fa0]/30 text-[#dae2fd] text-xs font-medium hover:border-[#ffd700]/40 transition"
                 >
                   {tech}
                 </span>
@@ -216,8 +258,8 @@ function HeroSection({
               href="https://github.com/pintusingh123"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#142138] border border-[#908fa0]/30 hover:border-[#c0c1ff]/60 text-[#dae2fd] hover:text-[#c0c1ff] transition shadow-md"
-              aria-label="GitHub"
+              className="p-2.5 rounded-xl bg-[#142138] border border-[#908fa0]/30 hover:border-[#ffd700]/60 text-[#dae2fd] hover:text-[#ffd700] transition shadow-md"
+              aria-label="GitHub Profile"
             >
               <FaGithub size={18} />
             </a>
@@ -226,7 +268,7 @@ function HeroSection({
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-[#142138] border border-[#908fa0]/30 hover:border-[#4cd7f6]/60 text-[#dae2fd] hover:text-[#4cd7f6] transition shadow-md"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn Profile"
             >
               <FaLinkedin size={18} />
             </a>
