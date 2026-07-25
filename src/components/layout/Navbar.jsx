@@ -37,17 +37,21 @@ function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[92%] max-w-4xl z-50">
+    <header className="fixed top-4 inset-x-3 sm:inset-x-6 mx-auto max-w-4xl z-50">
       <nav className="glass-panel rounded-full px-4 py-2.5 sm:px-6 sm:py-3 border border-[#c0c1ff]/20 shadow-2xl shadow-[#060e20]/80 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 text-white font-bold tracking-tight text-base sm:text-lg group"
+          className="flex items-center gap-2.5 text-white font-bold tracking-tight text-base sm:text-lg group"
         >
-          <span className="h-8 w-8 rounded-full bg-gradient-to-tr from-[#c0c1ff] to-[#4cd7f6] text-[#0b1326] flex items-center justify-center font-extrabold text-sm shadow-md shadow-[#c0c1ff]/20 group-hover:scale-105 transition-transform">
-            PS
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-[#c0c1ff] via-[#4cd7f6] to-[#ffafd3] p-[1.5px] shadow-lg shadow-[#4cd7f6]/20 group-hover:scale-105 group-hover:shadow-[#4cd7f6]/40 transition-all">
+            <span className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#0b1326] group-hover:bg-[#131b2e] transition-colors">
+              <span className="bg-gradient-to-r from-[#c0c1ff] via-[#4cd7f6] to-[#ffafd3] bg-clip-text text-transparent font-black text-sm tracking-tight font-display">
+                PJ
+              </span>
+            </span>
           </span>
-          <span className="hidden xs:inline bg-gradient-to-r from-[#dae2fd] via-[#c0c1ff] to-[#4cd7f6] bg-clip-text text-transparent">
+          <span className="hidden xs:inline bg-gradient-to-r from-[#dae2fd] via-[#c0c1ff] to-[#4cd7f6] bg-clip-text text-transparent font-bold">
             Pintu Singh
           </span>
         </Link>
@@ -116,7 +120,7 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 glass-panel rounded-2xl p-4 border border-[#c0c1ff]/20 shadow-2xl animate-fade-in-up">
+        <div className="md:hidden mt-2 glass-panel rounded-2xl p-4 border border-[#c0c1ff]/20 shadow-2xl overflow-hidden animate-fade-in-up w-full max-w-full">
           <ul className="flex flex-col gap-2">
             {navItems.map((item) => {
               const active = !item.external && isActive(item.path);

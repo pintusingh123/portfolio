@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaFileDownload, FaGithub, FaLinkedin, FaCheckCircle, FaCode, FaRocket, FaLaptopCode } from "react-icons/fa";
 
-function TypingText({
+function HeroSection({
   words = [
     "Full Stack Web Developer",
     "Django & Python Specialist",
@@ -70,10 +70,10 @@ function TypingText({
   ];
 
   return (
-    <section className="relative min-h-[95vh] flex flex-col items-center justify-center pt-28 pb-16 px-4 text-center overflow-hidden bg-[#0b1326] grid-overlay">
+    <section className="relative min-h-[95vh] w-full max-w-full flex flex-col items-center justify-center pt-28 pb-16 px-4 text-center overflow-hidden bg-[#0b1326] grid-overlay">
       {/* Ambient Spotlight Background Glow */}
       <div
-        className="pointer-events-none fixed -z-10 w-[500px] h-[500px] rounded-full opacity-20 bg-gradient-to-tr from-[#c0c1ff] via-[#4cd7f6] to-[#8083ff] blur-3xl transition-transform duration-700 ease-out transform -translate-x-1/2 -translate-y-1/2"
+        className="hidden md:block pointer-events-none fixed -z-10 w-[500px] h-[500px] rounded-full opacity-20 bg-gradient-to-tr from-[#c0c1ff] via-[#4cd7f6] to-[#8083ff] blur-3xl transition-transform duration-700 ease-out transform -translate-x-1/2 -translate-y-1/2"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
@@ -224,4 +224,4 @@ function TypingText({
   );
 }
 
-export default TypingText;
+export default HeroSection;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 
 const timelineData = [
   {
@@ -35,18 +35,18 @@ const timelineData = [
   },
 ];
 
-const Ab = () => {
+const TimelineSection = () => {
   const [showMore, setShowMore] = useState(false);
 
   // Show recent timeline initially, expand on click
   const visibleData = showMore ? timelineData : timelineData.slice(0, 3);
 
   return (
-    <div className="w-full min-h-screen bg-[#0b1326] text-[#dae2fd] pt-24 pb-16 px-4 sm:px-6 lg:px-8 grid-overlay">
+    <div className="w-full min-h-screen bg-[#0b1326] text-[#dae2fd] pt-24 pb-16 px-4 sm:px-6 lg:px-8 grid-overlay overflow-hidden">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">
-          <Button title="My Journey & Growth" />
+          <SectionBadge title="My Journey & Growth" />
           <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
             The Journey of Pintu Singh
           </h2>
@@ -56,12 +56,12 @@ const Ab = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative pl-6 sm:pl-10 md:pl-14 border-l-2 border-[#4cd7f6]/40 space-y-8 my-8">
+        <div className="relative pl-8 sm:pl-12 md:pl-14 border-l-2 border-[#4cd7f6]/40 space-y-8 my-8">
           {visibleData.map((item, index) => (
             <div key={index} className="relative group">
               {/* Year Dot / Badge */}
-              <div className="absolute -left-[31px] sm:-left-[47px] md:-left-[63px] top-0 flex items-center justify-center">
-                <span className="px-3 py-1 rounded-full bg-[#131b2e] border border-[#4cd7f6] text-[#4cd7f6] font-mono font-bold text-xs sm:text-sm shadow-md">
+              <div className="absolute -left-[24px] sm:-left-[40px] md:-left-[56px] top-0 flex items-center justify-center">
+                <span className="px-2.5 py-1 rounded-full bg-[#131b2e] border border-[#4cd7f6] text-[#4cd7f6] font-mono font-bold text-xs sm:text-sm shadow-md">
                   {item.year}
                 </span>
               </div>
@@ -97,4 +97,4 @@ const Ab = () => {
   );
 };
 
-export default Ab;
+export default TimelineSection;

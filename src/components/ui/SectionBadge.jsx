@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ title, icon: Icon, onClick, className = "" }) => {
+const SectionBadge = ({ title, icon: Icon, onClick, className = "" }) => {
   return (
     <button
       onClick={onClick}
@@ -32,4 +32,4 @@ const Button = ({ title, icon: Icon, onClick, className = "" }) => {
   );
 };
 
-export default Button;
+export default SectionBadge;

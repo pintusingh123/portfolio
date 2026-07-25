@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 import { FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
 
 const skillCategories = [
@@ -26,12 +26,12 @@ const skillCategories = [
   },
 ];
 
-export default function Skill() {
+export default function SkillsSection() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-14">
-        <Button title="Technical Stack" />
+        <SectionBadge title="Technical Stack" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Skills & Core Competencies
         </h2>

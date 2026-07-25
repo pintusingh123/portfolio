@@ -11,7 +11,7 @@ import {
   FaFilter,
   FaShoppingCart,
 } from "react-icons/fa";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 
 const projects = [
   {
@@ -112,10 +112,10 @@ export default function ProjectShowcase() {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
       {/* Section Header */}
       <div className="text-center mb-8 flex flex-col items-center">
-        <Button title="Featured Work" />
+        <SectionBadge title="Featured Work" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Projects I've Built
         </h2>
@@ -125,7 +125,7 @@ export default function ProjectShowcase() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto pb-2">
+      <div className="flex items-center justify-center gap-2 mb-10 overflow-x-auto max-w-full pb-2">
         <span className="text-xs text-[#908fa0] uppercase tracking-wider font-semibold mr-2 hidden sm:inline-flex items-center gap-1">
           <FaFilter className="text-[#4cd7f6]" /> Filter:
         </span>
@@ -162,7 +162,7 @@ export default function ProjectShowcase() {
                 variants={cardVariants}
                 whileHover={{ scale: 1.02, y: -4 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative animated-border-card glass-card rounded-2xl p-6 flex flex-col justify-between border border-[#c0c1ff]/15 hover:border-transparent transition-all duration-300 shadow-xl hover:shadow-[0_10px_35px_-5px_rgba(192,193,255,0.25)] cursor-pointer"
+                className="group relative animated-border-card glass-card rounded-2xl p-6 flex flex-col justify-between border border-[#c0c1ff]/15 hover:border-transparent transition-all duration-300 shadow-xl hover:shadow-[0_10px_35px_-5px_rgba(192,193,255,0.25)] cursor-pointer overflow-hidden"
               >
                 {/* Corner Glow Accent */}
                 <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#4cd7f6]/10 rounded-full blur-2xl group-hover:bg-[#4cd7f6]/25 transition-all duration-500 pointer-events-none" />

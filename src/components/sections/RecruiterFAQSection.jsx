@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 
 const faqData = [
@@ -22,7 +22,7 @@ const faqData = [
   },
 ];
 
-export default function RecruiterFAQ() {
+export default function RecruiterFAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
@@ -30,10 +30,10 @@ export default function RecruiterFAQ() {
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-[#dae2fd]">
+    <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-[#dae2fd] overflow-hidden">
       {/* Header */}
       <div className="flex flex-col items-center text-center mb-10">
-        <Button title="Recruiter Q&A" />
+        <SectionBadge title="Recruiter Q&A" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Quick Answers for Hiring Managers
         </h2>

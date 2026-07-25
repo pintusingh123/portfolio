@@ -41,7 +41,7 @@ const posts = [
 
 const categories = ["All", "React", "Web Design", "JavaScript", "Productivity"];
 
-function Blog() {
+function BlogPage() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -65,7 +65,7 @@ function Blog() {
   }, [activeCategory, query]);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white px-6 py-12 sm:px-10 lg:px-16">
+    <div className="min-h-screen bg-[#020617] text-white px-6 py-12 sm:px-10 lg:px-16 pt-24">
       <div className="mx-auto max-w-7xl">
         <header className="mb-12 max-w-3xl space-y-4">
           <span className="inline-flex items-center rounded-full bg-yellow-400/10 px-3 py-1 text-sm font-semibold uppercase tracking-[0.3em] text-yellow-300">
@@ -249,4 +249,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default BlogPage;

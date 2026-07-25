@@ -23,14 +23,18 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#060e20] text-[#dae2fd] border-t border-[#908fa0]/20 pt-12 pb-8">
+    <footer className="bg-[#060e20] text-[#dae2fd] border-t border-[#908fa0]/20 pt-12 pb-8 w-full max-w-full overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 border-b border-[#908fa0]/20">
           {/* Left Column */}
           <div className="space-y-3 max-w-md">
-            <div className="flex items-center gap-2">
-              <span className="h-7 w-7 rounded-full bg-[#c0c1ff] text-[#07006c] font-bold flex items-center justify-center text-xs">
-                PS
+            <div className="flex items-center gap-2.5">
+              <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-[#c0c1ff] via-[#4cd7f6] to-[#ffafd3] p-[1.5px] shadow-md shadow-[#4cd7f6]/20">
+                <span className="flex h-full w-full items-center justify-center rounded-[7px] bg-[#0b1326]">
+                  <span className="bg-gradient-to-r from-[#c0c1ff] via-[#4cd7f6] to-[#ffafd3] bg-clip-text text-transparent font-black text-xs tracking-tight">
+                    PJ
+                  </span>
+                </span>
               </span>
               <span className="text-xl font-bold tracking-tight text-[#dae2fd] font-display">
                 Pintu Singh

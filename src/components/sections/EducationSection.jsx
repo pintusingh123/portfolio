@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 import { FaGraduationCap, FaSchool } from "react-icons/fa";
 
 const educationTabs = [
@@ -31,14 +31,14 @@ const educationTabs = [
   },
 ];
 
-export default function Education() {
+export default function EducationSection() {
   const [activeTab, setActiveTab] = useState(educationTabs[0]);
 
   return (
-    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white">
+    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white overflow-hidden">
       {/* Section Header */}
       <div className="text-center mb-10 flex flex-col items-center">
-        <Button title="Academic Foundation" />
+        <SectionBadge title="Academic Foundation" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Education & Qualifications
         </h2>

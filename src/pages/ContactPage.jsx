@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Button from "./buttons/Button";
+import SectionBadge from "../components/ui/SectionBadge";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaCopy, FaCheck } from "react-icons/fa";
 
-const Contact = () => {
+const ContactPage = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = (email) => {
@@ -36,11 +36,11 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-[#0b1326] text-[#dae2fd] pt-24 pb-16 px-4 sm:px-6 lg:px-8 grid-overlay">
+    <section className="min-h-screen w-full max-w-full overflow-hidden bg-[#0b1326] text-[#dae2fd] pt-24 pb-16 px-4 sm:px-6 lg:px-8 grid-overlay">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
-          <Button title="Get In Touch" />
+          <SectionBadge title="Get In Touch" />
           <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold text-[#dae2fd] tracking-tight font-display">
             Let’s Connect & Collaborate
           </h2>
@@ -123,4 +123,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactPage;

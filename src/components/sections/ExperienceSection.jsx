@@ -1,13 +1,13 @@
 import React from "react";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 import { FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 
-function Experience() {
+function ExperienceSection() {
   return (
-    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
       {/* Section Header */}
       <div className="text-center mb-10 flex flex-col items-center">
-        <Button title="Professional Experience" />
+        <SectionBadge title="Professional Experience" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           Work History & Highlights
         </h2>
@@ -63,4 +63,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default ExperienceSection;

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./buttons/Button";
+import SectionBadge from "../ui/SectionBadge";
 import { Link } from "react-router-dom";
 import { FaLaptopCode, FaServer, FaPaintBrush, FaPlug, FaArrowRight } from "react-icons/fa";
 
@@ -34,12 +34,12 @@ const services = [
   },
 ];
 
-function Services() {
+function ServicesSection() {
   return (
-    <section className="py-20 text-white w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 text-white w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Section Header */}
       <div className="flex flex-col items-center text-center mb-12">
-        <Button title="Services & Capabilities" />
+        <SectionBadge title="Services & Capabilities" />
         <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
           What I Bring To The Table
         </h2>
@@ -112,4 +112,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default ServicesSection;
