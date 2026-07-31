@@ -237,43 +237,7 @@ function HeroSection({
           })}
         </div>
 
-        {/* Social Links & Tech Badges */}
-        <div className="pt-6 border-t border-[#908fa0]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#c7c4d7] text-xs sm:text-sm">
-          <div className="flex items-center gap-2">
-            <span className="text-[#908fa0] uppercase tracking-widest text-[11px] font-bold">Primary Stack:</span>
-            <div className="flex flex-wrap gap-1.5">
-              {["React 19", "Three.js", "Django", "Python", "PostgreSQL", "REST APIs"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2.5 py-1 rounded-md bg-[#142138] border border-[#908fa0]/30 text-[#dae2fd] text-xs font-medium hover:border-[#ffd700]/40 transition"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="https://github.com/pintusingh123"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#142138] border border-[#908fa0]/30 hover:border-[#ffd700]/60 text-[#dae2fd] hover:text-[#ffd700] transition shadow-md"
-              aria-label="GitHub Profile"
-            >
-              <FaGithub size={18} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/pintu-jhala-1612b5284/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#142138] border border-[#908fa0]/30 hover:border-[#4cd7f6]/60 text-[#dae2fd] hover:text-[#4cd7f6] transition shadow-md"
-              aria-label="LinkedIn Profile"
-            >
-              <FaLinkedin size={18} />
-            </a>
-          </div>
-        </div>
+      
       </motion.div>
     </section>
   );
