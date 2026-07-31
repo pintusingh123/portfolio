@@ -1,66 +1,55 @@
-import React from "react";
-import SectionBadge from "../ui/SectionBadge";
-import { FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+const experience = [
+  {
+    period: "Mar 2025 - Present",
+    company: "Trader Portfolio Web App",
+    role: "Front-End Developer",
+    description:
+      "Built a responsive single-page application for a professional trader to display portfolio metrics and market insights, with custom analytics views and fluid CSS animations.",
+    bg: "bg-[#f2e9da]",
+    periodColor: "text-[#9a4f2f]",
+    dot: "bg-[#c1633b]",
+    current: true,
+  },
+];
 
-function ExperienceSection() {
+export default function ExperienceSection() {
   return (
-    <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
-      {/* Section Header */}
-      <div className="text-center mb-10 flex flex-col items-center">
-        <SectionBadge title="Professional Experience" />
-        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
-          Work History & Highlights
-        </h2>
-      </div>
-
-      {/* Experience Timeline Card */}
-      <div className="glass-card rounded-2xl p-6 sm:p-8 border border-[#c0c1ff]/15 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-48 h-48 bg-[#4cd7f6]/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#908fa0]/20 mb-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#c0c1ff]/15 text-[#4cd7f6] border border-[#c0c1ff]/30">
-              <FaBriefcase className="h-6 w-6" />
-            </div>
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#dae2fd]">
-                Front-End Developer
-              </h3>
-              <p className="text-[#c0c1ff] text-sm font-semibold mt-0.5">
-                Trader Portfolio & Information Web Application
-              </p>
-            </div>
+    <ol className="flex size-full flex-col">
+      {experience.map((role, i) => (
+        <li key={role.company} className="flex gap-5">
+          <div className="flex flex-col items-center">
+            <span
+              className={`mt-2 size-3.5 shrink-0 rounded-full border-2 border-[#241f1b] ${role.dot}`}
+            />
+            {i < experience.length - 1 && (
+              <span className="my-1 w-0.5 flex-1 bg-[#d8c7ac]" />
+            )}
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#131b2e] border border-[#908fa0]/30 text-[#c7c4d7] text-xs font-mono w-fit">
-            <FaCalendarAlt className="text-[#4cd7f6]" />
-            <span>March 2025 — Present</span>
-          </div>
-        </div>
-
-        <p className="text-[#c7c4d7] text-sm sm:text-base leading-relaxed mb-6">
-          Architected and developed a high-converting responsive single-page web application for a professional trader to display trading portfolio metrics, market insights, and analytical highlights. Integrated custom financial section views, fluid CSS animations, and optimized load performance.
-        </p>
-
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#908fa0]/20">
-          <div className="flex flex-wrap gap-2">
-            {["React.js", "Tailwind CSS", "Single Page Application", "Analytics UI", "Responsive Design"].map((skill) => (
-              <span
-                key={skill}
-                className="px-3 py-1 rounded-md bg-[#131b2e] border border-[#908fa0]/30 text-xs text-[#dae2fd] font-medium"
-              >
-                {skill}
+          <div
+            className={`mb-6 min-w-0 flex-1 rounded-xl border-t-2 border-b-2 border-l-4 border-r-[3px] border-[#d8c7ac] px-5 py-5 shadow-[4px_4px_0_0_#241f1b] sm:px-7 sm:py-6 ${role.bg}`}
+          >
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={`font-sans text-sm font-bold tracking-[0.7px] ${role.periodColor}`}>
+                {role.period}
               </span>
-            ))}
-          </div>
+              {role.current && (
+                <span className="rounded-full bg-[#241f1b] px-2 py-0.5 font-sans text-xs font-bold tracking-[0.7px] text-[#f7f1e6] uppercase">
+                  Current
+                </span>
+              )}
+            </div>
 
-          <span className="text-xs font-bold text-[#4cd7f6] bg-[#4cd7f6]/10 border border-[#4cd7f6]/30 px-3 py-1.5 rounded-full uppercase tracking-wider">
-            Role: Front-End Developer
-          </span>
-        </div>
-      </div>
-    </section>
+            <h3 className="font-hand pt-1 text-[32px] leading-none text-[#241f1b]">
+              {role.company}
+            </h3>
+
+            <p className="pt-2 font-sans text-base leading-[1.6] text-[#4a4038]">
+              <span className="font-bold text-[#241f1b]">{role.role}</span> • {role.description}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }
-
-export default ExperienceSection;

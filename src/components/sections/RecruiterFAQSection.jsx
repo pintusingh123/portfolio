@@ -1,24 +1,26 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import SectionBadge from "../ui/SectionBadge";
+import { useState } from "react";
 import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 
 const faqData = [
   {
     question: "Are you available for immediate full-time / remote developer roles?",
-    answer: "Yes! I am actively looking for full-time Software Engineering / Web Developer opportunities (Remote or In-office) and can join immediately.",
+    answer:
+      "Yes! I am actively looking for full-time Software Engineering / Web Developer opportunities (remote or in-office) and can join immediately.",
   },
   {
     question: "What are your core technical strengths?",
-    answer: "My core stack includes Frontend with React.js, Vite, JavaScript (ES6+), and Tailwind CSS, paired with robust Backend development using Python, Django, Django REST Framework, and PostgreSQL databases.",
+    answer:
+      "My core stack is frontend with React.js, Vite, JavaScript (ES6+), and Tailwind CSS, paired with backend development using Python, Django, Django REST Framework, and PostgreSQL.",
   },
   {
     question: "What production projects have you built?",
-    answer: "I have built over 15 web projects, including TaskFlow Pro (Django Task System), Cropify (Stripe + LocalStorage Auth Image Editor), full-stack E-Commerce applications, and custom analytical trading web apps.",
+    answer:
+      "I've built over 15 web projects, including TaskFlow (a Django task system), Cropify (a Stripe-powered image editor), a full-stack e-commerce platform, and a custom analytical trading web app.",
   },
   {
     question: "How can hiring managers or recruiters reach you quickly?",
-    answer: "You can reach me directly via phone/call (+91-800-364-2596), WhatsApp chat, or email (pintujhala4@gmail.com). I respond promptly!",
+    answer:
+      "You can reach me directly via phone/call (+91-800-364-2596), WhatsApp chat, or email (pintujhala4@gmail.com). I respond promptly!",
   },
 ];
 
@@ -30,56 +32,55 @@ export default function RecruiterFAQSection() {
   };
 
   return (
-    <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-[#dae2fd] overflow-hidden">
-      {/* Header */}
+    <section className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="flex flex-col items-center text-center mb-10">
-        <SectionBadge title="Recruiter Q&A" />
-        <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-[#dae2fd] tracking-tight font-display">
+        <span className="font-sans text-sm font-bold tracking-[0.7px] text-[#9a4f2f] uppercase">
+          Recruiter Q&A
+        </span>
+        <h2 className="mt-3 font-hand text-[clamp(1.75rem,4vw+1rem,2.5rem)] leading-[1.2] text-[#241f1b]">
           Quick Answers for Hiring Managers
         </h2>
-        <p className="mt-3 text-[#c7c4d7] max-w-xl text-sm sm:text-base">
+        <p className="mt-3 font-sans text-base text-[#4a4038] max-w-xl">
           Key highlights regarding availability, technical fit, and employment readiness.
         </p>
       </div>
 
-      {/* Accordion List */}
-      <div className="space-y-4">
+      <div className="flex flex-col gap-4">
         {faqData.map((item, idx) => {
           const isOpen = openIndex === idx;
           return (
             <div
-              key={idx}
-              className="glass-card rounded-2xl border border-[#c0c1ff]/15 overflow-hidden transition-all duration-300 shadow-lg"
+              key={item.question}
+              className="rounded-xl border-t-2 border-b-2 border-l-4 border-r-[3px] border-[#d8c7ac] bg-white shadow-[4px_4px_0_0_#241f1b] overflow-hidden"
             >
               <button
+                type="button"
                 onClick={() => toggleFAQ(idx)}
-                className="w-full flex items-center justify-between p-5 text-left text-sm sm:text-base font-bold text-[#dae2fd] hover:text-[#c0c1ff] transition-colors"
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between gap-4 p-5 text-left font-sans text-sm sm:text-base font-bold text-[#241f1b] transition-colors hover:text-[#9a4f2f]"
               >
                 <span className="flex items-center gap-3">
-                  <FaQuestionCircle className="text-[#4cd7f6] shrink-0" />
+                  <FaQuestionCircle className="text-[#c1633b] shrink-0" />
                   {item.question}
                 </span>
                 <FaChevronDown
-                  className={`text-[#c0c1ff] transition-transform duration-300 ${
-                    isOpen ? "rotate-180 text-[#4cd7f6]" : ""
+                  className={`shrink-0 text-[#c1633b] transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#c7c4d7] leading-relaxed border-t border-[#908fa0]/15">
-                      {item.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ${
+                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="px-5 pb-5 pt-1 font-sans text-sm sm:text-base text-[#4a4038] leading-relaxed border-t border-[#d8c7ac]">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}
