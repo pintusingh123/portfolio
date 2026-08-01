@@ -46,7 +46,7 @@ const projects = [
       "A high-performance modern developer portfolio crafted with React, Vite, and Tailwind CSS, showcasing production projects and interactive UI design.",
     role: "Designed and built the entire site — UI, layout, and deployment.",
     tags: ["React", "Vite", "Tailwind CSS"],
-    href: "https://portfolio-app-delta-one.vercel.app/",
+    href: "https://bintu-jhala-portfolio12.vercel.app/",
     bg: "bg-[#eef0e6]",
     titleColor: "text-[#241f1b]",
     descriptionColor: "text-[#4a4038]",
@@ -130,8 +130,8 @@ function HomePage() {
           </ScrollAnimate>
           <ScrollAnimate delay={0.2} className="h-[180px]">
             <StatCard
-              value="7.1"
-              label="CGPA / 10"
+              value="80+"
+              label="Solved Leetcode Problems"
               bg="bg-[#7c8b5d]"
               valueColor="text-[#241f1b]"
               labelColor="text-[rgba(36,31,27,0.7)]"

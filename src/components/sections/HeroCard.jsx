@@ -40,7 +40,7 @@ export default function HeroCard() {
           Python REST APIs — from UI polish down to the database schema.
         </p>
 
-        <div className="flex flex-wrap gap-4 pt-1">
+        <div className="flex mb-3 flex-wrap gap-4 pt-1">
           <a
             href="#projects"
             onClick={(e) => handleScroll(e, "#projects")}
