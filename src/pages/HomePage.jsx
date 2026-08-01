@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import HeroCard from "../components/sections/HeroCard";
@@ -8,7 +9,9 @@ import ExperienceSection from "../components/sections/ExperienceSection";
 import ProjectCard from "../components/sections/ProjectCard";
 import ContactCard from "../components/sections/ContactCard";
 import EducationCard from "../components/sections/EducationCard";
-import RecruiterFAQSection from "../components/sections/RecruiterFAQSection";
+import ScrollAnimate from "../components/ui/ScrollAnimate";
+
+const RecruiterFAQSection = lazy(() => import("../components/sections/RecruiterFAQSection"));
 
 const projects = [
   {
@@ -98,16 +101,16 @@ function HomePage() {
 
       <main id="main-content" className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-8 py-16">
         <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-stretch">
-          <div className="lg:col-span-8">
+          <ScrollAnimate delay={0} className="lg:col-span-8">
             <HeroCard />
-          </div>
-          <div className="aspect-square lg:aspect-auto lg:col-span-4">
+          </ScrollAnimate>
+          <ScrollAnimate delay={0.15} className="aspect-square lg:aspect-auto lg:col-span-4">
             <AvatarCard />
-          </div>
+          </ScrollAnimate>
         </section>
 
         <section className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="h-[180px]">
+          <ScrollAnimate delay={0} className="h-[180px]">
             <StatCard
               value="07+"
               label="Projects Completed"
@@ -115,8 +118,8 @@ function HomePage() {
               valueColor="text-[#241f1b]"
               labelColor="text-[rgba(36,31,27,0.75)]"
             />
-          </div>
-          <div className="h-[180px]">
+          </ScrollAnimate>
+          <ScrollAnimate delay={0.1} className="h-[180px]">
             <StatCard
               value="15+"
               label="Web Apps Shipped"
@@ -124,8 +127,8 @@ function HomePage() {
               valueColor="text-[#241f1b]"
               labelColor="text-[#6e6356]"
             />
-          </div>
-          <div className="h-[180px]">
+          </ScrollAnimate>
+          <ScrollAnimate delay={0.2} className="h-[180px]">
             <StatCard
               value="7.1"
               label="CGPA / 10"
@@ -134,32 +137,40 @@ function HomePage() {
               labelColor="text-[rgba(36,31,27,0.7)]"
               progress={71}
             />
-          </div>
+          </ScrollAnimate>
         </section>
 
         <section id="experience" className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <SkillsCard />
-          <ExperienceSection />
+          <ScrollAnimate delay={0}>
+            <SkillsCard />
+          </ScrollAnimate>
+          <ScrollAnimate delay={0.15}>
+            <ExperienceSection />
+          </ScrollAnimate>
         </section>
 
         <section id="projects" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <div key={project.title} className="h-full">
+          {projects.map((project, idx) => (
+            <ScrollAnimate key={project.title} delay={(idx % 3) * 0.1} className="h-full">
               <ProjectCard {...project} />
-            </div>
+            </ScrollAnimate>
           ))}
         </section>
 
         <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <div className="min-h-[265px] lg:col-span-7">
+          <ScrollAnimate delay={0} className="min-h-[265px] lg:col-span-7">
             <ContactCard />
-          </div>
-          <div className="min-h-[265px] lg:col-span-5">
+          </ScrollAnimate>
+          <ScrollAnimate delay={0.15} className="min-h-[265px] lg:col-span-5">
             <EducationCard />
-          </div>
+          </ScrollAnimate>
         </section>
 
-        <RecruiterFAQSection />
+        <Suspense fallback={null}>
+          <ScrollAnimate delay={0.1}>
+            <RecruiterFAQSection />
+          </ScrollAnimate>
+        </Suspense>
       </main>
 
       <Footer />

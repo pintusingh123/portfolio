@@ -4,6 +4,10 @@ export default function AvatarCard() {
       <img
         src="/images/myimg.png"
         alt="Pintu Singh"
+        width={600}
+        height={600}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 size-full object-cover grayscale"
       />
       <div className="absolute inset-x-0 bottom-0 flex flex-col bg-gradient-to-t from-[rgba(36,31,27,0.92)] to-transparent p-6">

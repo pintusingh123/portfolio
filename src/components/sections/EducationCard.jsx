@@ -31,7 +31,7 @@ export default function EducationCard() {
             2022 – 2025
           </span>
           <span className="rounded-lg border border-[rgba(138,124,108,0.4)] px-3.5 py-1.5 font-sans text-base text-[#4a4038]">
-            CGPA: 7.1/10
+            CGPA: 7.0/10
           </span>
         </div>
       </div>

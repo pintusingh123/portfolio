@@ -31,6 +31,16 @@ function Header() {
     return () => observer.disconnect();
   }, []);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    window.history.pushState(null, "", href);
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
@@ -43,6 +53,7 @@ function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
         <a
           href="#about"
+          onClick={(e) => handleNavClick(e, "#about")}
           className="font-hand text-[32px] leading-none text-[#241f1b] transition-colors hover:text-[#9a4f2f]"
         >
           Pintu S.
@@ -55,6 +66,7 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={isActive ? "page" : undefined}
                 className={
                   isActive
@@ -71,6 +83,7 @@ function Header() {
         <div className="flex items-center gap-4">
           <a
             href="#about"
+            onClick={(e) => handleNavClick(e, "#about")}
             className="block size-10 shrink-0 overflow-hidden rounded-full border-t-2 border-b-2 border-l-4 border-r-[3px] border-[#c1633b] transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c1633b]"
           >
             <img
@@ -78,6 +91,8 @@ function Header() {
               alt="Pintu Singh"
               width={40}
               height={40}
+              loading="lazy"
+              decoding="async"
               className="size-full object-cover"
             />
           </a>
@@ -102,7 +117,7 @@ function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={isActive ? "page" : undefined}
                 className={
                   isActive
