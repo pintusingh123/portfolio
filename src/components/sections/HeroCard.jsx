@@ -30,7 +30,7 @@ export default function HeroCard() {
         </div>
 
         <h1 className="font-hand text-[clamp(2rem,4vw+1.2rem,3rem)] leading-[1.2] tracking-[-0.96px] text-[#241f1b]">
-          {`Hi, I'm Pintu. I build `}
+          {`Hi, I'm Bintu. I build `}
           <span className="text-[#c1633b] underline decoration-wavy">full-stack web apps</span>
           {` that ship fast.`}
         </h1>

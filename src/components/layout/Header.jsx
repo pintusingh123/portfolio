@@ -56,7 +56,7 @@ function Header() {
           onClick={(e) => handleNavClick(e, "#about")}
           className="font-hand text-[32px] leading-none text-[#241f1b] transition-colors hover:text-[#9a4f2f]"
         >
-          Pintu S.
+          Bintu S.
         </a>
 
         <nav className="hidden items-center gap-12 sm:flex">
