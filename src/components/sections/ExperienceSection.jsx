@@ -1,6 +1,17 @@
 const experience = [
   {
-    period: "Mar 2025 - May",
+    period: "March 24 - Oct 24",
+    company: "TransposeOn Pvt Ltd, Gurgaon, Haryana ",
+    role: "Software developer Intern (Remote – WFH)",
+    description:
+      "Contributed to both frontend development and backend API development for web applications. Worked with Django, Django REST Framework (DRF), and React.js to develop and integrate",
+    bg: "bg-[#f2e9da]",
+    periodColor: "text-[#9a4f2f]",
+    dot: "bg-[#c1633b]",
+    current: true,
+  },
+  {
+    period: "Mar 25 - May 225",
     company: "Trader Portfolio Web App",
     role: "Front-End Developer",
     description:
@@ -33,11 +44,7 @@ export default function ExperienceSection() {
               <span className={`font-sans text-sm font-bold tracking-[0.7px] ${role.periodColor}`}>
                 {role.period}
               </span>
-              {role.current && (
-                <span className="rounded-full bg-[#241f1b] px-2 py-0.5 font-sans text-xs font-bold tracking-[0.7px] text-[#f7f1e6] uppercase">
-                   Delevered
-                </span>
-              )}
+              
             </div>
 
             <h3 className="font-hand pt-1 text-[32px] leading-none text-[#241f1b]">

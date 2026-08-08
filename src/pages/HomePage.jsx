@@ -54,6 +54,19 @@ const projects = [
     tagColor: "text-[#5f6b48]",
   },
   {
+    title: "Smart Scanner Generator",
+    description:
+      "Developed a document scanning and management application using Django, enabling users to upload, organize, and manage digital documents efficiently.",
+    role: "Built the reusable component system and state management.",
+    tags: ["Django", "Python", "REST APIs", "Pillow", "PostgreSQL"],
+    href: "https://scanner-app-3mrd.onrender.com/",
+    bg: "bg-[#eef0e6]",
+    titleColor: "text-[#241f1b]",
+    descriptionColor: "text-[#4a4038]",
+    tagBg: "bg-[rgba(124,139,93,0.18)]",
+    tagColor: "text-[#5f6b48]",
+  },
+  {
     title: "Cropify Image Editor",
     description:
       "Feature-rich web image cropper and editor with account management, client authentication caching, and Stripe payment integration.",
@@ -92,6 +105,7 @@ const projects = [
     tagBg: "bg-[rgba(247,241,230,0.1)]",
     tagColor: "text-[#f7f1e6]",
   },
+  
 ];
 
 function HomePage() {
