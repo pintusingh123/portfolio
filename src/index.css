@@ -41,113 +41,32 @@ body {
  
 
 /* Custom Scrollbar */
+/* Custom Scrollbar for Warm Paper Theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1326;
+  background: #faf6f0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222a3d;
+  background: #d8c7ac;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2d3449;
+  background: #c1633b;
 }
 
-/* Custom Animations from Stitch AI UI Config */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Warm Paper Card Helper */
+.paper-card {
+  background: #faf6f0;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 4px;
+  border-right-width: 3px;
+  border-color: #d8c7ac;
+  box-shadow: 4px 4px 0 0 #241f1b;
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-/* Stitch AI Glass Panel & Grid Overlay */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-card {
-  background: rgba(23, 31, 51, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(192, 193, 255, 0.12);
-}
-
-.glow-button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.glow-button:hover {
-  box-shadow: 0 0 20px rgba(192, 193, 255, 0.4);
-  transform: translateY(-2px);
-}
-
-.grid-overlay {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-}
-
-/* Premium Animated Border for Project Cards */
-@keyframes borderGlowShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animated-border-card {
-  position: relative;
-  border-radius: 0px;
-}
-
-.animated-border-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 0px;
-  padding: 1px;
-  background: linear-gradient(90deg, #d8b800, #aa0253, #00319a, #00ff87, #8083ff, #ffae00, #00f2fe, #c0c1ff, #ffd700);
-  background-size: 500% 500%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.7s ease-in-out;
-  pointer-events: none;
-  animation: borderGlowShift 2.5s linear infinite;
-  z-index: 10;
-}
-
-.animated-border-card:hover::before,
-.animated-border-card:focus-within::before {
-  opacity: 1;
-}

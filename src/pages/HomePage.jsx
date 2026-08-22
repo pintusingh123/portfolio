@@ -6,6 +6,7 @@ import AvatarCard from "../components/sections/AvatarCard";
 import StatCard from "../components/sections/StatCard";
 import SkillsCard from "../components/sections/SkillsCard";
 import ExperienceSection from "../components/sections/ExperienceSection";
+import ServicesSection from "../components/sections/ServicesSection";
 import ProjectCard from "../components/sections/ProjectCard";
 import ContactCard from "../components/sections/ContactCard";
 import EducationCard from "../components/sections/EducationCard";
@@ -163,15 +164,38 @@ function HomePage() {
           </ScrollAnimate>
         </section>
 
-        <section id="projects" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, idx) => (
-            <ScrollAnimate key={project.title} delay={(idx % 3) * 0.1} className="h-full">
-              <ProjectCard {...project} />
-            </ScrollAnimate>
-          ))}
+        <section id="services" className="w-full pt-6">
+          <ScrollAnimate delay={0.1}>
+            <ServicesSection />
+          </ScrollAnimate>
         </section>
 
+        {/* Tactile Divider between Services and Projects */}
+        <div className="relative my-8 flex items-center justify-center">
+          <div className="w-full border-t-2 border-[#d8c7ac]" />
+          <span className="absolute rounded-full border-2 border-[#d8c7ac] bg-[#faf6f0] px-5 py-1 font-hand text-lg font-bold text-[#241f1b] shadow-[3px_3px_0_0_#241f1b]">
+             Portfolio Showcase 
+          </span>
+        </div>
+
+        <section id="projects" className="w-full ">
+      
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, idx) => (
+              <ScrollAnimate key={project.title} delay={(idx % 3) * 0.1} className="h-full">
+                <ProjectCard {...project} />
+              </ScrollAnimate>
+            ))}
+          </div>
+        </section>
+
+        {/* Divider between Projects and Contact */}
+        <div className="my-3 w-full border-t-2 border-[#d8c7ac]" />
+
         <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        
+        
           <ScrollAnimate delay={0} className="min-h-[265px] lg:col-span-7">
             <ContactCard />
           </ScrollAnimate>

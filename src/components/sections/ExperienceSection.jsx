@@ -1,17 +1,17 @@
 const experience = [
   {
-    period: "March 24 - Oct 24",
-    company: "TransposeOn Pvt Ltd, Gurgaon, Haryana ",
-    role: "Software developer Intern (Remote – WFH)",
+    period: "Mar 2024 – Oct 2024",
+    company: "TransposeOn Pvt Ltd, Gurgaon, Haryana",
+    role: "Software Developer Intern (Remote)",
     description:
-      "Contributed to both frontend development and backend API development for web applications. Worked with Django, Django REST Framework (DRF), and React.js to develop and integrate",
+      "Contributed to both frontend development and backend API development for web applications. Worked with Django, Django REST Framework (DRF), and React.js to develop and integrate core features.",
     bg: "bg-[#f2e9da]",
     periodColor: "text-[#9a4f2f]",
     dot: "bg-[#c1633b]",
-    current: true,
+    current: false,
   },
   {
-    period: "Mar 25 - May 225",
+    period: "Mar 2025 – May 2025",
     company: "Trader Portfolio Web App",
     role: "Front-End Developer",
     description:
@@ -19,7 +19,7 @@ const experience = [
     bg: "bg-[#f2e9da]",
     periodColor: "text-[#9a4f2f]",
     dot: "bg-[#c1633b]",
-    current: true,
+    current: false,
   },
 ];
 

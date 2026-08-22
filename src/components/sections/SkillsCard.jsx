@@ -1,10 +1,10 @@
 import { FaTerminal } from "react-icons/fa";
 
 const skillGroups = [
-  { title: "Languages", items: [ "Python","JavaScript (ES6+)", "SQL"] },
-  { title: "Backend", items: ["Django / DRF", "REST APIs"] },
-  { title: "Frontend", items: ["React.js / Next.js","JavaScript", "Tailwind CSS"] },
-  { title: "Data & Cloud", items:  ["PostgreSQL / MySQL","Docker, Redis", "Firebase / SupaBase", "Vercel / Render"] },
+  { title: "Languages", items: ["Python", "JavaScript (ES6+)", "SQL", "HTML5 & CSS3"] },
+  { title: "Frontend", items: ["React.js / Next.js", "Vite", "Tailwind CSS"] },
+  { title: "Backend", items: ["Django / DRF", "RESTful APIs", "JWT Auth"] },
+  { title: "Database & DevOps", items: ["PostgreSQL / MySQL", "Docker & Redis", "Vercel & Render"] },
 ];
 
 export default function SkillsCard() {
