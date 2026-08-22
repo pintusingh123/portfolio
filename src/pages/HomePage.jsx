@@ -106,7 +106,7 @@ const projects = [
     tagBg: "bg-[rgba(247,241,230,0.1)]",
     tagColor: "text-[#f7f1e6]",
   },
-  
+
 ];
 
 function HomePage() {
@@ -173,13 +173,13 @@ function HomePage() {
         {/* Tactile Divider between Services and Projects */}
         <div className="relative my-8 flex items-center justify-center">
           <div className="w-full border-t-2 border-[#d8c7ac]" />
-          <span className="absolute rounded-full border-2 border-[#d8c7ac] bg-[#faf6f0] px-5 py-1 font-hand text-lg font-bold text-[#241f1b] shadow-[3px_3px_0_0_#241f1b]">
-             Portfolio Showcase 
+          <span className="absolute bg-[#faf6f0]  py-1 font-hand text-lg font-bold text-[#9a4f2f] px-2  ">
+            Projects Showcase
           </span>
         </div>
 
         <section id="projects" className="w-full ">
-      
+
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, idx) => (
@@ -191,11 +191,16 @@ function HomePage() {
         </section>
 
         {/* Divider between Projects and Contact */}
-        <div className="my-3 w-full border-t-2 border-[#d8c7ac]" />
+        <div className="relative my-8 flex items-center justify-center">
+          <div className="w-full border-t-2 border-[#d8c7ac]" />
+          <span className="absolute bg-[#faf6f0]  py-1 font-hand text-lg font-bold text-[#9a4f2f] px-2  ">
+           Contact & Education
+          </span>
+        </div>
 
         <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-        
-        
+
+
           <ScrollAnimate delay={0} className="min-h-[265px] lg:col-span-7">
             <ContactCard />
           </ScrollAnimate>
